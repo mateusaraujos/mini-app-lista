@@ -1,0 +1,133 @@
+/* === VARIÁVEIS GLOBAIS === */
+:root {
+  --primary-color: #f0ea38; /* Cor primária */
+  --secondary-color: #000080; /* Cor secundária */
+  --primary-text-color: #0d0d0d; /* Cor do texto primário */
+  --secondary-text-color: #ffffff; /* Cor do texto secundário */
+  --font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte padrão */
+}
+
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+/* === ESTRUTURA GLOBAL === */
+body {
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* === COMPONENTES === */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container main {
+  width: 70vw;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  user-select: none;
+}
+
+.container main h1 {
+  color: var(--primary-color);
+  font-size: 1rem;
+  margin-bottom: 16px;
+  line-height: 20px;
+}
+
+.container main h1 span:last-child {
+  display: block;
+  font-size: 2rem;
+}
+
+#form-titulo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#form-titulo #titulo {
+  flex: 2;
+  padding: 16px;
+  border: 2px solid var(--secondary-text-color);
+  border-radius: 480px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--secondary-text-color);
+  color: var(--secondary-color);
+}
+
+#form-titulo #titulo::placeholder {
+  font-weight: lighter;
+  color: var(--primary-text-color);
+}
+
+#form-titulo #titulo:focus {
+  outline: none;
+  border: 2px solid var(--primary-text-color);
+  box-shadow: 0 0 16px var(--secondary-text-color);
+}
+
+#form-titulo button {
+  cursor: pointer;
+  flex: 1;
+  padding: 16px;
+  border: 2px solid var(--primary-color);
+  border-radius: 480px;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transition: background-color 0.3s;
+}
+
+#form-titulo button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 16px var(--primary-color);
+}
+
+#form-titulo button:focus {
+  outline: none;
+  box-shadow: 0 0 16px var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+@media (min-width: 768px) {
+  .container main {
+    width: 80vw;
+    text-align: left;
+  }
+
+  #form-titulo {
+    flex-direction: row;
+  }
+
+  #form-titulo #titulo {
+    flex: 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container main {
+    width: 70vw;
+  }
+
+  #form-titulo #titulo {
+    flex: 5;
+  }
+}
