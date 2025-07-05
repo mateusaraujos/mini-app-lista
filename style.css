@@ -1,10 +1,24 @@
 /* === VARIÁVEIS GLOBAIS === */
 :root {
-  --primary-color: #f0ea38; /* Cor primária */
-  --secondary-color: #000080; /* Cor secundária */
-  --primary-text-color: #0d0d0d; /* Cor do texto primário */
-  --secondary-text-color: #ffffff; /* Cor do texto secundário */
-  --font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte padrão */
+  --primary-color: #f0ea38;
+  --secondary-color: #000080;
+
+  --primary-success-color: #014606;
+  --secondary-success-color: #80ff80;
+
+  --primary-error-color: #830b0b;
+  --secondary-error-color: #ff5c5c;
+
+  --primary-atencao-color: ;
+  --secondary-atencao-color: ;
+
+  --primary-info-color: ;
+  --secondary-info-color: ;
+
+  --primary-text-color: #0d0d0d;
+  --secondary-text-color: #ffffff;
+
+  --font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* === RESET === */
@@ -24,6 +38,78 @@ body {
 }
 
 /* === COMPONENTES === */
+.mensagem-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  z-index: 1000;
+  user-select: none;
+}
+
+.mensagem-overlay .erro {
+  background-color: var(--secondary-error-color);
+  color: var(--secondary-text-color);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 80%;
+  text-align: center;
+  animation: descer-demorar-subir 3s forwards;
+}
+
+.mensagem-overlay .sucesso {
+  background-color: var(--secondary-success-color);
+  color: var(--primary-text-color);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 80%;
+  text-align: center;
+  animation: descer-demorar-subir 3s forwards;
+}
+
+.mensagem-overlay .atencao {
+  background-color: var(--primary-color);
+  color: var(--secondary-text-color);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 80%;
+  text-align: center;
+  animation: descer-demorar-subir 3s forwards;
+}
+
+.mensagem-overlay .info {
+  background-color: var(--primary-success-color);
+  color: var(--secondary-text-color);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 80%;
+  text-align: center;
+  animation: descer-demorar-subir 3s forwards;
+}
+
+@keyframes descer-demorar-subir {
+  0% {
+    transform: translateY(-100%);
+  }
+  5% {
+    transform: translateY(200%);
+  }
+  80% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
