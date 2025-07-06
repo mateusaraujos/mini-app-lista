@@ -1,0 +1,99 @@
+.pagina-lista {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+}
+
+.coluna-adicionar {
+  display: none;
+  padding: 24px;
+}
+
+.coluna-lista {
+  position: relative;
+}
+
+.coluna-lista .btn-flutuante {
+  position: absolute;
+  top: 35px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 2px;
+  border: 2px solid var(--color-error);
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-error);
+}
+
+.btn-flutuante span {
+  margin: 0.8px 0 0 0.5px;
+}
+
+.coluna-lista .btn-flutuante:hover {
+  background-color: var(--color-error);
+  color: var(--color-surface);
+}
+
+.coluna-lista .btn-flutuante:focus {
+  box-shadow: var(--shadow-red);
+  background-color: var(--color-error);
+  color: var(--color-surface);
+}
+
+.coluna-lista .container-titulo {
+  padding: 20px 20px 20px 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.coluna-lista .container-titulo h1 {
+  font-size: 2.5rem;
+  max-width: 90%;
+  margin: 0 !important;
+}
+
+.coluna-lista .container-conteudo {
+  padding: 24px;
+}
+
+.container-conteudo .btn-adicionar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  font-size: 1.25rem;
+  padding: 8px;
+  border: 2px solid var(--color-primary);
+  border-radius: 24px;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.container-conteudo .btn-adicionar:hover {
+  background-color: var(--color-primary);
+  color: var(--text-inverted);
+}
+
+.container-conteudo .btn-adicionar:focus {
+  background-color: var(--color-primary);
+  color: var(--text-inverted);
+  box-shadow: var(--shadow-blue);
+}
+
+@media (min-width: 768px) {
+  .pagina-lista {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .coluna-adicionar {
+    display: block;
+  }
+
+  .coluna-lista {
+    border-left: 1px solid var(--border-color);
+  }
+
+  .coluna-lista .btn-flutuante {
+    left: -16px;
+  }
+}

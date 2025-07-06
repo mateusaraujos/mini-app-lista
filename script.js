@@ -22,6 +22,10 @@ function validarTitulo() {
   } else {
     verificarOverlay();
     criarMensagem("sucesso", "✅ Criando sua lista...");
+    setTimeout(() => {
+      localStorage.setItem("lista", titulo.substring(0, 30));
+      window.location.href = "pages/lista.html";
+    }, 3000);
   }
 }
 

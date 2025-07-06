@@ -17,7 +17,9 @@
   --text-inverted: #ffffff; /* Texto sobre botões ou alertas escuros (ex: texto branco sobre botão azul */
 
   --border-color: #ced4da; /* Borda de inputs, cards, divisores discretos */
-  --shadow-blue: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Sombra azul para input */
+  --shadow-blue: 0 0 0 2px #0056b340; /* Sombra azul para inputs e botões em foco */
+  --shadow-green: 0 0 0 2px #28a74540; /* Sombra verde para botões em foco */
+  --shadow-red: 0 0 0 2px #dc354540; /* Sombra vermelha para botões em foco */
   --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra leve para elevação visual */
 
   --font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -37,6 +39,27 @@ body {
   color: var(--text-primary);
   font-size: 1rem;
   line-height: 1.5;
+}
+
+h1 {
+  color: var(--color-primary);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
+button:focus {
+  outline: none;
+  filter: brightness(1.2);
+}
+
+input {
+  outline: none;
 }
 
 /* === COMPONENTES === */
@@ -131,7 +154,6 @@ body {
 }
 
 .container main h1 {
-  color: var(--color-primary);
   font-size: 1rem;
   margin-bottom: 16px;
   line-height: 20px;
@@ -165,13 +187,11 @@ body {
 }
 
 #form-titulo #titulo:focus {
-  outline: none;
   border: 2px solid var(--color-primary);
   box-shadow: var(--shadow-blue);
 }
 
 #form-titulo button {
-  cursor: pointer;
   flex: 1;
   padding: 16px;
   border: 2px solid var(--color-primary);
@@ -183,13 +203,10 @@ body {
 }
 
 #form-titulo button:hover {
-  filter: brightness(1.2);
   box-shadow: 0 0 16px var(--shadow-default);
 }
 
 #form-titulo button:focus {
-  outline: none;
-  filter: brightness(1.2);
   box-shadow: var(--shadow-blue);
 }
 
