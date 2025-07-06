@@ -15,7 +15,27 @@
 Veja como está a interface do projeto:
 
 <p align="center">
-    <img src="./interfaceInicial.png" alt="Interface Inicial" width="500" />
+    <img src="./assets/interfaceInicial.png" alt="Interface Inicial" width="400" />
+</p>
+
+Veja como estão os alertas:
+
+- Alerta de sucesso
+
+<p align="center">
+    <img src="./assets/alerta_sucesso.gif" alt="Interface Inicial" width="400" />
+</p>
+
+- Alerta de erro
+
+<p align="center">
+    <img src="./assets/alerta_erro.gif" alt="Interface Inicial" width="400" />
+</p>
+
+- Alerta de atenção
+
+<p align="center">
+    <img src="./assets/alerta_atencao.gif" alt="Interface Inicial" width="400" />
 </p>
 
 ## 🔧 Como rodar localmente
