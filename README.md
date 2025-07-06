@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 -->
 
-# Um Mini-App de Criação de Listas
+# 📋 Mini-App de Lista Dinâmica com Adição e Remoção
 
 🎯 Com este App, você é capaz de criar listas com nomes personalizados.
 
@@ -9,6 +9,13 @@
 - HTML5
 - CSS3
 - JavaScript
+
+## ✨ Funcionalidades
+
+- Adicionar nome à lista
+- Exibir nome com botão de remoção
+- Remover itens individualmente
+- Validação de campos com mensagens visuais
 
 ## 📸 Screenshots
 
@@ -20,19 +27,19 @@ Veja como está a interface do projeto:
 
 Veja como estão os alertas:
 
-- Alerta de sucesso
+- Alerta de sucesso ao adicionar um nome válido
 
 <p align="center">
     <img src="./assets/alerta_sucesso.gif" alt="Interface Inicial" width="400" />
 </p>
 
-- Alerta de erro
+- Alerta de erro ao tentar adicionar um campo vazio
 
 <p align="center">
     <img src="./assets/alerta_erro.gif" alt="Interface Inicial" width="400" />
 </p>
 
-- Alerta de atenção
+- Alerta de atenção ao tentar adicionar um nome com menos de 3 caracteres
 
 <p align="center">
     <img src="./assets/alerta_atencao.gif" alt="Interface Inicial" width="400" />
