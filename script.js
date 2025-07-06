@@ -1,13 +1,8 @@
 const formTitulo = document.getElementById("form-titulo");
 const inputTitulo = document.getElementById("titulo");
 
-inputTitulo.addEventListener("blur", () => {
-  setTimeout(() => {
-    if (inputTitulo.value.trim() === "") {
-      verificarOverlay();
-      criarMensagem("info", "ℹ️ Digite um título para sua lista.");
-    }
-  }, 1000);
+document.addEventListener("DOMContentLoaded", () => {
+  inputTitulo.maxLength = 30;
 });
 
 formTitulo.addEventListener("submit", function (event) {
@@ -21,7 +16,6 @@ function validarTitulo() {
   if (titulo === "") {
     verificarOverlay();
     criarMensagem("erro", "❌ O título não pode estar vazio.");
-    inputTitulo.focus();
   } else if (titulo.length < 3) {
     verificarOverlay();
     criarMensagem("atencao", "⚠️ O título deve ter pelo menos 3 caracteres.");
