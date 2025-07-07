@@ -26,10 +26,6 @@
   color: var(--color-error);
 }
 
-.btn-flutuante span {
-  margin: 0.8px 0 0 0.5px;
-}
-
 .coluna-lista .btn-flutuante:hover {
   background-color: var(--color-error);
   color: var(--color-surface);
@@ -39,6 +35,11 @@
   box-shadow: var(--shadow-red);
   background-color: var(--color-error);
   color: var(--color-surface);
+}
+
+.btn-flutuante span {
+  margin-top: 0.5px;
+  margin-left: 0.2px;
 }
 
 .coluna-lista .container-titulo {
@@ -94,6 +95,7 @@
   }
 
   .coluna-lista .btn-flutuante {
-    left: -16px;
+    left: -16.2px;
+    background: transparent;
   }
 }
