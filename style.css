@@ -210,6 +210,12 @@ input {
   box-shadow: var(--shadow-blue);
 }
 
+@media (max-width: 768px) {
+  .mensagem-overlay {
+    font-size: small;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     justify-content: center;
