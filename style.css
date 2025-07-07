@@ -95,7 +95,7 @@ input {
   box-shadow: var(--shadow-default);
   max-width: 80%;
   text-align: center;
-  animation: descer-demorar-subir 3s forwards;
+  animation: descer-demorar-subir 1.5s forwards;
 }
 
 .mensagem-overlay .atencao {

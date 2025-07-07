@@ -25,7 +25,7 @@ function validarTitulo() {
     setTimeout(() => {
       localStorage.setItem("lista", titulo.substring(0, 30));
       window.location.href = "pages/lista.html";
-    }, 3000);
+    }, 1500);
   }
 }
 
@@ -51,9 +51,15 @@ function criarMensagem(tipo, mensagem) {
 
   document.body.appendChild(mensagemOverlay);
 
-  setTimeout(() => {
-    mensagemOverlay.remove();
-  }, 3000);
+  if (tipo === "sucesso") {
+    setTimeout(() => {
+      mensagemOverlay.remove();
+    }, 1500);
+  } else {
+    setTimeout(() => {
+      mensagemOverlay.remove();
+    }, 3000);
+  }
 }
 
 const verificarOverlay = () => {
