@@ -22,7 +22,7 @@
   max-height: 80%;
   overflow-y: auto; /* Adds vertical scrolling if content overflows */
   scrollbar-width: thin;
-  scrollbar-color: var(--color-bg) var(--color-primary);
+  scrollbar-color: var(--scrollbar-color);
   display: none;
   z-index: 1000;
 }
@@ -46,6 +46,9 @@ body.show-modal {
   display: grid;
   width: 100vw;
   height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color);
 }
 
 .add-column {

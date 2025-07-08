@@ -17,10 +17,13 @@
   --text-inverted: #ffffff; /* Inverted text for dark backgrounds (e.g., white text on blue buttons) */
 
   --border-color: #ced4da; /* Borders for inputs, cards, subtle dividers */
+
   --shadow-blue: 0 0 0 2px #0056b340; /* Blue focus shadow for inputs and buttons */
   --shadow-green: 0 0 0 2px #28a74540; /* Green focus shadow */
   --shadow-red: 0 0 0 2px #dc354540; /* Red focus shadow */
   --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for elevation */
+
+  --scrollbar-color: var(--color-primary) var(--color-bg);
 
   --font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -143,6 +146,9 @@ input {
   justify-content: flex-start;
   width: 100vw;
   height: 100vh;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color);
 }
 
 .container main {
