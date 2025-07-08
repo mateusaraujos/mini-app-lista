@@ -1,61 +1,61 @@
-/* === OVERLAY (FUNDO ESCURO) */
+/* === OVERLAY (DARK BACKGROUND) */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semi-transparente */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   display: none;
   z-index: 999;
 }
 
-/* === JANELA MODAL (FLUTUANTE) === */
-.coluna-modal {
+/* === MODAL WINDOW (FLOATING) === */
+.modal-column {
   position: fixed;
-  top: 10%; /* Centraliza verticalmente */
-  left: 50%; /* Centraliza horizontalmente */
-  transform: translate(-50%, 0%); /* Ajusta para centralização exata */
-  background-color: var(--color-surface); /* Fundo do modal */
+  top: 10%; /* Centers vertically */
+  left: 50%; /* Centers horizontally */
+  transform: translate(-50%, 0%); /* Adjusts for exact centering */
+  background-color: var(--color-surface); /* Modal background */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 85%;
   max-height: 80%;
-  overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo exceder */
+  overflow-y: auto; /* Adds vertical scrolling if content overflows */
   display: none;
   z-index: 1000;
 }
 
 .show-modal .overlay {
-  display: block; /* Mostra o overlay e o modal quando a tela é pequena */
+  display: block; /* Shows overlay and modal when screen is small */
 }
 
-/* Quando o body tem a classe .show-modal, e a coluna tem .coluna-modal, ela aparece */
-.show-modal .coluna-adicionar.coluna-modal {
+/* When the body has the class .show-modal, and the column has .modal-column, it appears */
+.show-modal .add-column.modal-column {
   display: block;
 }
 
-/* Adicional: Esconder a rolagem do body quando o modal está aberto */
+/* Hides body scroll when modal is open */
 body.show-modal {
   overflow: hidden;
 }
 
-/* === COMPONENTES === */
-.pagina-lista {
+/* === COMPONENTS === */
+.list-page {
   display: grid;
   width: 100vw;
   height: 100vh;
 }
 
-.coluna-adicionar {
+.add-column {
   display: none;
   padding: 24px;
 }
 
-.coluna-lista {
+.list-column {
   position: relative;
 }
 
-.coluna-lista .btn-flutuante {
+.list-column .floating-btn {
   position: absolute;
   top: 35px;
   right: 20px;
@@ -68,38 +68,38 @@ body.show-modal {
   color: var(--color-error);
 }
 
-.coluna-lista .btn-flutuante:hover {
+.list-column .floating-btn:hover {
   background-color: var(--color-error);
   color: var(--color-surface);
 }
 
-.coluna-lista .btn-flutuante:focus {
+.list-column .floating-btn:focus {
   box-shadow: var(--shadow-red);
   background-color: var(--color-error);
   color: var(--color-surface);
 }
 
-.btn-flutuante span {
+.floating-btn span {
   margin-top: 0.5px;
   margin-left: 0.2px;
 }
 
-.coluna-lista .container-titulo {
+.list-column .title-container {
   padding: 20px 20px 20px 24px;
   border-bottom: 1px solid var(--border-color);
 }
 
-.coluna-lista .container-titulo h1 {
+.list-column .title-container h1 {
   font-size: 2.5rem;
   max-width: 90%;
   margin: 0 !important;
 }
 
-.coluna-lista .container-itens {
+.list-column .item-container {
   padding: 24px;
 }
 
-.container-itens .btn-adicionar {
+.item-container .add-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,31 +112,31 @@ body.show-modal {
   color: var(--color-primary);
 }
 
-.container-itens .btn-adicionar:hover {
+.item-container .add-btn:hover {
   background-color: var(--color-primary);
   color: var(--text-inverted);
 }
 
-.container-itens .btn-adicionar:focus {
+.item-container .add-btn:focus {
   background-color: var(--color-primary);
   color: var(--text-inverted);
   box-shadow: var(--shadow-blue);
 }
 
 @media (min-width: 768px) {
-  .pagina-lista {
+  .list-page {
     grid-template-columns: 1fr 2fr;
   }
 
-  .coluna-adicionar {
+  .add-column {
     display: block;
   }
 
-  .coluna-lista {
+  .list-column {
     border-left: 1px solid var(--border-color);
   }
 
-  .coluna-lista .btn-flutuante {
+  .list-column .floating-btn {
     left: -16.2px;
   }
 }

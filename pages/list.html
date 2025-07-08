@@ -8,13 +8,13 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="./lista.css" />
+    <link rel="stylesheet" href="./list.css" />
     <title>...</title>
   </head>
   <body>
-    <div class="pagina-lista">
+    <div class="list-page">
       <div id="overlay" class="overlay"></div>
-      <section id="colunaAdd" class="coluna-adicionar coluna-modal">
+      <section id="addColumn" class="add-column modal-column">
         <h3>Adicionar item</h3>
         <p>
           Este é o conteúdo da sua coluna flutuante. Ele terá rolagem se for
@@ -64,22 +64,22 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
           quas.
         </p>
-        <button id="btnFecharModal">Fechar</button>
+        <button id="closeModalBtn">Fechar</button>
       </section>
 
-      <main class="coluna-lista">
-        <button class="btn-flutuante">
+      <main class="list-column">
+        <button class="floating-btn">
           <span class="material-symbols-outlined">close</span>
         </button>
 
-        <div class="container-titulo">
+        <div class="title-container">
           <h1>...</h1>
         </div>
 
-        <div class="container-itens">
+        <div class="item-container">
           <article class="item"></article>
           <div>
-            <button class="btn-adicionar">
+            <button class="add-btn">
               <span class="material-symbols-outlined">add_circle</span>
               <span>Adicionar</span>
             </button>
@@ -88,6 +88,6 @@
       </main>
     </div>
 
-    <script src="lista.js" type="module"></script>
+    <script src="list.js" type="module"></script>
   </body>
 </html>

@@ -1,70 +1,70 @@
-let formTitulo, inputTitulo;
+let titleForm, titleInput;
 
 document.addEventListener("DOMContentLoaded", () => {
-  // AGORA sim, os elementos do DOM estão garantidos.
-  formTitulo = document.getElementById("form-titulo");
-  inputTitulo = document.getElementById("titulo");
+  // Ensures the elements of the DOM
+  titleForm = document.getElementById("title-form");
+  titleInput = document.getElementById("title");
 
-  // Verificação de segurança antes de tentar manipulá-los, especialmente em códigos maiores.
-  if (inputTitulo) {
-    inputTitulo.maxLength = 30;
+  // Security check before manipulating the DOM
+  if (titleInput) {
+    titleInput.maxLength = 30;
   }
 
-  if (formTitulo) {
-    formTitulo.addEventListener("submit", function (event) {
+  if (titleForm) {
+    titleForm.addEventListener("submit", function (event) {
       event.preventDefault();
-      validarTitulo();
+      validateTitle();
     });
   }
 });
 
-function validarTitulo() {
-  const titulo = inputTitulo.value.trim();
+function validateTitle() {
+  const title = titleInput.value.trim();
 
-  if (titulo === "") {
-    criarMensagem("erro", "❌ O título não pode estar vazio.");
-  } else if (titulo.length < 3) {
-    criarMensagem("atencao", "⚠️ O título deve ter pelo menos 3 caracteres.");
+  if (title === "") {
+    createMessage("error", "❌ O título não pode estar vazio.");
+  } else if (title.length < 3) {
+    createMessage("warning", "⚠️ O título deve ter pelo menos 3 caracteres.");
   } else {
-    criarMensagem("sucesso", "✅ Criando sua lista...");
+    createMessage("success", "✅ Criando sua lista...");
     setTimeout(() => {
-      localStorage.setItem("lista", titulo.substring(0, 30));
-      window.location.href = "pages/lista.html";
+      localStorage.setItem("listName", title.substring(0, 30));
+      window.location.href = "pages/list.html";
     }, 1500);
   }
 }
 
-export function criarMensagem(tipo, mensagem) {
-  const mensagemOverlay = document.createElement("div");
+export function createMessage(type, message) {
+  const messageOverlay = document.createElement("div");
 
-  if (!document.querySelector(".mensagem-overlay")) {
-    // Classe para container principal de mensagem
-    mensagemOverlay.className = "mensagem-overlay";
+  if (!document.querySelector(".message-overlay")) {
+    // Class for main message container
+    messageOverlay.className = "message-overlay";
 
-    switch (tipo) {
-      case "erro":
-        mensagemOverlay.innerHTML = `<div class="erro">${mensagem}</div>`;
+    switch (type) {
+      case "error":
+        messageOverlay.innerHTML = `<div class="error">${message}</div>`;
         break;
-      case "sucesso":
-        mensagemOverlay.innerHTML = `<div class="sucesso">${mensagem}</div>`;
+      case "success":
+        messageOverlay.innerHTML = `<div class="success">${message}</div>`;
         break;
-      case "atencao":
-        mensagemOverlay.innerHTML = `<div class="atencao">${mensagem}</div>`;
+      case "warning":
+        messageOverlay.innerHTML = `<div class="warning">${message}</div>`;
         break;
       default:
-        mensagemOverlay.innerHTML = `<div class="info">${mensagem}</div>`;
+        messageOverlay.innerHTML = `<div class="info">${message}</div>`;
     }
 
-    document.body.appendChild(mensagemOverlay);
+    document.body.appendChild(messageOverlay);
   }
 
-  if (tipo === "sucesso") {
+  if (type === "success") {
     setTimeout(() => {
-      mensagemOverlay.remove();
+      messageOverlay.remove();
     }, 1500);
   } else {
     setTimeout(() => {
-      mensagemOverlay.remove();
+      messageOverlay.remove();
     }, 3000);
   }
 }
