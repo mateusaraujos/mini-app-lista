@@ -47,6 +47,7 @@ h1 {
 
 button {
   cursor: pointer;
+  user-select: none;
 }
 
 button:hover {
@@ -196,7 +197,7 @@ input {
   padding: 16px;
   border: 2px solid var(--color-primary);
   border-radius: 480px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   background-color: var(--color-primary);
   color: var(--text-inverted);
   transition: background-color 0.3s;

@@ -1,3 +1,45 @@
+/* === OVERLAY (FUNDO ESCURO) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semi-transparente */
+  display: none;
+  z-index: 999;
+}
+
+/* === JANELA MODAL (FLUTUANTE) === */
+.coluna-modal {
+  position: fixed;
+  top: 10%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translate(-50%, 0%); /* Ajusta para centralização exata */
+  background-color: var(--color-surface); /* Fundo do modal */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 85%;
+  max-height: 80%;
+  overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo exceder */
+  display: none;
+  z-index: 1000;
+}
+
+.show-modal .overlay {
+  display: block; /* Mostra o overlay e o modal quando a tela é pequena */
+}
+
+/* Quando o body tem a classe .show-modal, e a coluna tem .coluna-modal, ela aparece */
+.show-modal .coluna-adicionar.coluna-modal {
+  display: block;
+}
+
+/* Adicional: Esconder a rolagem do body quando o modal está aberto */
+body.show-modal {
+  overflow: hidden;
+}
+
+/* === COMPONENTES === */
 .pagina-lista {
   display: grid;
   width: 100vw;
@@ -53,11 +95,11 @@
   margin: 0 !important;
 }
 
-.coluna-lista .container-conteudo {
+.coluna-lista .container-itens {
   padding: 24px;
 }
 
-.container-conteudo .btn-adicionar {
+.container-itens .btn-adicionar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,12 +112,12 @@
   color: var(--color-primary);
 }
 
-.container-conteudo .btn-adicionar:hover {
+.container-itens .btn-adicionar:hover {
   background-color: var(--color-primary);
   color: var(--text-inverted);
 }
 
-.container-conteudo .btn-adicionar:focus {
+.container-itens .btn-adicionar:focus {
   background-color: var(--color-primary);
   color: var(--text-inverted);
   box-shadow: var(--shadow-blue);
@@ -96,6 +138,5 @@
 
   .coluna-lista .btn-flutuante {
     left: -16.2px;
-    background: transparent;
   }
 }
