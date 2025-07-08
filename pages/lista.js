@@ -1,3 +1,5 @@
+import { criarMensagem, verificarOverlay } from "../script.js";
+
 const nomeLista = localStorage.getItem("lista");
 const overlayModal = document.getElementById("overlay");
 const btnFecharModal = document.getElementById("btnFecharModal");
@@ -5,6 +7,7 @@ const h1 = document.querySelector("h1");
 const btnFechar = document.querySelector(".btn-flutuante");
 const btnAdd = document.querySelector(".btn-adicionar");
 const colunaAdd = document.querySelector(".coluna-adicionar");
+const colunaLista = document.querySelector(".coluna-lista");
 const item = document.querySelector(".item"); // article
 
 const mediaQueryMax768 = window.matchMedia("(max-width: 768px)"); // Media Query para telas pequenas
@@ -22,7 +25,11 @@ btnFechar.addEventListener("click", () => {
 });
 
 btnAdd.addEventListener("click", () => {
-  if (mediaQueryMax768.matches) abrirModal();
+  if (mediaQueryMax768.matches) {
+    if (nomeLista) {
+      abrirModal();
+    }
+  }
 });
 
 function abrirModal() {
@@ -59,6 +66,16 @@ function handleMediaQueryChange(event) {
     // Adiciona os botãoes "Adicionar" e "Fechar"
     btnAdd.style.display = "flex";
     btnFecharModal.style.display = "block";
+
+    if (!nomeLista) {
+      colunaAdd.style.display = "none";
+      colunaLista.style.display = "none";
+
+      criarMensagem("info", "ℹ️ Voltando para a página incial");
+      setTimeout(() => {
+        window.location.href = "../index.html";
+      }, 3000);
+    }
   } else {
     // Remove as classes de modal do body e da coluna
     document.body.classList.remove("show-modal");
@@ -71,6 +88,17 @@ function handleMediaQueryChange(event) {
     // Remove os botões "Adicionar e "Fechar"
     btnAdd.style.display = "none";
     btnFecharModal.style.display = "none";
+
+    if (!nomeLista) {
+      colunaAdd.style.display = "none";
+      colunaLista.style.display = "none";
+
+      verificarOverlay();
+      criarMensagem("info", "ℹ️ Voltando para a página incial");
+      setTimeout(() => {
+        window.location.href = "../index.html";
+      }, 3000);
+    }
   }
 }
 

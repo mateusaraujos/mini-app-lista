@@ -1,13 +1,21 @@
-const formTitulo = document.getElementById("form-titulo");
-const inputTitulo = document.getElementById("titulo");
+let formTitulo, inputTitulo;
 
 document.addEventListener("DOMContentLoaded", () => {
-  inputTitulo.maxLength = 30;
-});
+  // AGORA sim, os elementos do DOM estão garantidos.
+  formTitulo = document.getElementById("form-titulo");
+  inputTitulo = document.getElementById("titulo");
 
-formTitulo.addEventListener("submit", function (event) {
-  event.preventDefault();
-  validarTitulo();
+  // Verificação de segurança antes de tentar manipulá-los, especialmente em códigos maiores.
+  if (inputTitulo) {
+    inputTitulo.maxLength = 30;
+  }
+
+  if (formTitulo) {
+    formTitulo.addEventListener("submit", function (event) {
+      event.preventDefault();
+      validarTitulo();
+    });
+  }
 });
 
 function validarTitulo() {
@@ -29,7 +37,7 @@ function validarTitulo() {
   }
 }
 
-function criarMensagem(tipo, mensagem) {
+export function criarMensagem(tipo, mensagem) {
   const mensagemOverlay = document.createElement("div");
 
   // Classe para container principal de mensagem
@@ -62,8 +70,8 @@ function criarMensagem(tipo, mensagem) {
   }
 }
 
-const verificarOverlay = () => {
+export function verificarOverlay() {
   if (document.querySelector(".mensagem-overlay")) {
     document.querySelector(".mensagem-overlay").remove();
   }
-};
+}
