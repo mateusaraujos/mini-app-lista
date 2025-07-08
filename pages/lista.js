@@ -1,4 +1,4 @@
-import { criarMensagem, verificarOverlay } from "../script.js";
+import { criarMensagem } from "../script.js";
 
 const nomeLista = localStorage.getItem("lista");
 const overlayModal = document.getElementById("overlay");
@@ -93,7 +93,6 @@ function handleMediaQueryChange(event) {
       colunaAdd.style.display = "none";
       colunaLista.style.display = "none";
 
-      verificarOverlay();
       criarMensagem("info", "ℹ️ Voltando para a página incial");
       setTimeout(() => {
         window.location.href = "../index.html";
