@@ -13,7 +13,7 @@
 
 ## 📸 Screenshots
 
-### Interface inicial
+### Interface inicialv
 
 <p align="center">
     <img src="./assets/homeInterface.png" alt="Interface Inicial" width="400" />
@@ -75,11 +75,15 @@ mini-app-lista/
 ├── index.html
 ├── style.css
 ├── script.js
-└── assets/
-    ├── homeInterface.png
-    ├── successAlert.gif
-    ├── errorAlert.gif
-    └── warningAlert.gif
+├── assets/
+│   ├── homeInterface.png
+│   ├── successAlert.gif
+│   ├── errorAlert.gif
+│   └── warningAlert.gif
+└── pages/
+    ├── list.html
+    ├── list.css
+    └── list.js
 ```
 
 ## 👤 Feito por
