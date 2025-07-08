@@ -21,6 +21,8 @@
   width: 85%;
   max-height: 80%;
   overflow-y: auto; /* Adds vertical scrolling if content overflows */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-bg) var(--color-primary);
   display: none;
   z-index: 1000;
 }
