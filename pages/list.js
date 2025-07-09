@@ -11,13 +11,13 @@ const listColumn = document.querySelector(".list-column");
 
 const mediaQueryMax768 = window.matchMedia("(max-width: 768px)");
 
-// Atualiza título e cabeçalho
+// Updates title and header
 if (listName && h1) {
   document.title = `${listName} | Lista Criada`;
   h1.innerText = listName;
 }
 
-// Botão “X” da coluna principal
+// Main column "X" button
 closeBtn.addEventListener("click", () => {
   if (listName) {
     localStorage.removeItem("listName");
@@ -25,7 +25,7 @@ closeBtn.addEventListener("click", () => {
   }
 });
 
-// Botão “Adicionar” só abre modal quando em small screen e há listName
+// “Add” button only opens modal when in small screen and there is listName
 addBtn.addEventListener("click", () => {
   if (mediaQueryMax768.matches && listName) {
     openModal();
@@ -35,15 +35,15 @@ addBtn.addEventListener("click", () => {
 function openModal() {
   addColumn.classList.add("modal-column");
   document.body.classList.add("show-modal");
-  document.body.style.overflow = "hidden"; // Bloqueia scroll do body
+  document.body.style.overflow = "hidden"; // Blocks body scrolling
 }
 
 function closeModal() {
   document.body.classList.remove("show-modal");
-  document.body.style.overflow = ""; // Restaura scroll
+  document.body.style.overflow = ""; // Restores scroll
 }
 
-// Fechar modal em várias interações
+// Closes modal in various situations
 closeModalBtn.addEventListener("click", closeModal);
 modalOverlay.addEventListener("click", closeModal);
 document.addEventListener("keydown", (event) => {
@@ -55,12 +55,16 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Ajusta visibilidade de botões/coluna conforme media query,
-// mas NÃO abre o modal automaticamente
+/*
+  Adjusts button/column visibility according to media query,
+  but does NOT open the modal automatically.
+*/
 function handleMediaQueryChange(event) {
   if (event.matches) {
-    // Small screens ou zoom alto: mostramos o botão e botão de fechar,
-    // mas garantimos que o modal esteja fechado
+    /* 
+      Small screens or high zoom: shows the button and close button,
+      but ensure the modal is closed.
+    */
     addBtn.style.display = "flex";
     closeModalBtn.style.display = "block";
 
@@ -68,7 +72,7 @@ function handleMediaQueryChange(event) {
     addColumn.classList.remove("modal-column");
     document.body.style.overflow = "";
   } else {
-    // Desktop: escondemos botões de mobile
+    // Desktop: Hides mobile buttons
     addBtn.style.display = "none";
     closeModalBtn.style.display = "none";
 
@@ -92,8 +96,8 @@ function checkLocalStorage() {
   }
 }
 
-// Monitora mudança de viewport/zoom
+// Monitors viewport/zoom changes
 mediaQueryMax768.addEventListener("change", handleMediaQueryChange);
 
-// Configuração inicial ao carregar a página
+// Initial setup on page load
 handleMediaQueryChange(mediaQueryMax768);
