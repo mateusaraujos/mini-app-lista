@@ -39,7 +39,6 @@ function openModal() {
 }
 
 function closeModal() {
-  addColumn.classList.remove("modal-column");
   document.body.classList.remove("show-modal");
   document.body.style.overflow = ""; // Restores page body scrolling
 }
