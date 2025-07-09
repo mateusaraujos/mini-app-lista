@@ -1,49 +1,7 @@
-/* === OVERLAY (DARK BACKGROUND) */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-  display: none;
-  z-index: 999;
-}
-
-/* === MODAL WINDOW (FLOATING) === */
-.modal-column {
-  position: fixed;
-  top: 10%; /* Centers vertically */
-  left: 50%; /* Centers horizontally */
-  transform: translate(-50%, 0%); /* Adjusts for exact centering */
-  background-color: var(--color-surface); /* Modal background */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  width: 85%;
-  max-height: 80%;
-  overflow-y: auto; /* Adds vertical scrolling if content overflows */
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-color);
-  display: none;
-  z-index: 1000;
-}
-
-.show-modal .overlay {
-  display: block; /* Shows overlay and modal when screen is small */
-}
-
-/* When the body has the class .show-modal, and the column has .modal-column, it appears */
-.show-modal .add-column.modal-column {
-  display: block;
-}
-
-/* Hides body scroll when modal is open */
-body.show-modal {
-  overflow: hidden;
-}
-
 /* === COMPONENTS === */
 .list-page {
   display: grid;
+  grid-auto-flow: dense;
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
@@ -128,7 +86,65 @@ body.show-modal {
   box-shadow: var(--shadow-blue);
 }
 
+@media (max-width: 768px) {
+  /* === OVERLAY (DARK BACKGROUND) */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.7
+    ); /* Semi-transparent black background */
+    display: none;
+    z-index: 999;
+  }
+
+  /* === MODAL WINDOW (FLOATING) === */
+  .modal-column {
+    position: fixed;
+    top: 10%; /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, 0%); /* Adjusts for exact centering */
+    background-color: var(--color-surface); /* Modal background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 85%;
+    max-height: 80%;
+    overflow-y: auto; /* Adds vertical scrolling if content overflows */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color);
+    display: none;
+    z-index: 1000;
+  }
+
+  .show-modal .overlay {
+    display: block; /* Shows overlay and modal when screen is small */
+  }
+
+  /* When the body has the class .show-modal, and the column has .modal-column, it appears */
+  .show-modal .add-column.modal-column {
+    display: block;
+  }
+
+  /* Hides body scroll when modal is open */
+  body.show-modal {
+    overflow: hidden;
+  }
+}
+
 @media (min-width: 768px) {
+  .overlay {
+    display: none;
+  }
+
+  #closeModalBtn {
+    display: none;
+  }
+
   .list-page {
     grid-template-columns: 1fr 2fr;
   }
@@ -143,5 +159,9 @@ body.show-modal {
 
   .list-column .floating-btn {
     left: -16.2px;
+  }
+
+  .item-container .add-btn {
+    display: none;
   }
 }

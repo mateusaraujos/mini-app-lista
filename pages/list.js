@@ -39,6 +39,7 @@ function openModal() {
 }
 
 function closeModal() {
+  addColumn.classList.remove("modal-column");
   document.body.classList.remove("show-modal");
   document.body.style.overflow = ""; // Restores page body scrolling
 }
@@ -67,15 +68,7 @@ function handleMediaQueryChange(event) {
     addBtn.style.display = "flex";
     closeModalBtn.style.display = "block";
 
-    if (!listName) {
-      addColumn.style.display = "none";
-      listColumn.style.display = "none";
-
-      createMessage("info", "ℹ️ Voltando para a página incial...");
-      setTimeout(() => {
-        window.location.href = "../index.html";
-      }, 3000);
-    }
+    checkLocalStorage();
   } else {
     // Removes modal classes from body and column
     document.body.classList.remove("show-modal");
@@ -89,15 +82,19 @@ function handleMediaQueryChange(event) {
     addBtn.style.display = "none";
     closeModalBtn.style.display = "none";
 
-    if (!listName) {
-      addColumn.style.display = "none";
-      listColumn.style.display = "none";
+    checkLocalStorage();
+  }
+}
 
-      createMessage("info", "ℹ️ Voltando para a página incial...");
-      setTimeout(() => {
-        window.location.href = "../index.html";
-      }, 3000);
-    }
+function checkLocalStorage() {
+  if (!listName) {
+    addColumn.style.display = "none";
+    listColumn.style.display = "none";
+
+    createMessage("info", "ℹ️ Voltando para a página incial...");
+    setTimeout(() => {
+      window.location.href = "../index.html";
+    }, 3000);
   }
 }
 
