@@ -86,7 +86,7 @@
   box-shadow: var(--shadow-blue);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
   /* === OVERLAY (DARK BACKGROUND) */
   .overlay {
     position: fixed;

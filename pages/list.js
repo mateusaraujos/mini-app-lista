@@ -8,15 +8,16 @@ const closeBtn = document.querySelector(".floating-btn");
 const addBtn = document.querySelector(".add-btn");
 const addColumn = document.querySelector(".add-column");
 const listColumn = document.querySelector(".list-column");
-const item = document.querySelector(".item"); // article
 
-const mediaQueryMax768 = window.matchMedia("(max-width: 768px)"); // Media Query for small screens
+const mediaQueryMax768 = window.matchMedia("(max-width: 768px)");
 
+// Atualiza título e cabeçalho
 if (listName && h1) {
   document.title = `${listName} | Lista Criada`;
   h1.innerText = listName;
 }
 
+// Botão “X” da coluna principal
 closeBtn.addEventListener("click", () => {
   if (listName) {
     localStorage.removeItem("listName");
@@ -24,32 +25,27 @@ closeBtn.addEventListener("click", () => {
   }
 });
 
+// Botão “Adicionar” só abre modal quando em small screen e há listName
 addBtn.addEventListener("click", () => {
-  if (mediaQueryMax768.matches) {
-    if (listName) {
-      openModal();
-    }
+  if (mediaQueryMax768.matches && listName) {
+    openModal();
   }
 });
 
 function openModal() {
   addColumn.classList.add("modal-column");
   document.body.classList.add("show-modal");
-  document.body.style.overflow = "hidden"; // Prevents scrolling of the page body
+  document.body.style.overflow = "hidden"; // Bloqueia scroll do body
 }
 
 function closeModal() {
   document.body.classList.remove("show-modal");
-  document.body.style.overflow = ""; // Restores page body scrolling
+  document.body.style.overflow = ""; // Restaura scroll
 }
 
-// Closes modal when clicking close button
+// Fechar modal em várias interações
 closeModalBtn.addEventListener("click", closeModal);
-
-// Closes modal when clicking outside of it (in overlay)
 modalOverlay.addEventListener("click", closeModal);
-
-// Closes modal when pressing "esc" key
 document.addEventListener("keydown", (event) => {
   if (
     event.key === "Escape" &&
@@ -59,30 +55,29 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+// Ajusta visibilidade de botões/coluna conforme media query,
+// mas NÃO abre o modal automaticamente
 function handleMediaQueryChange(event) {
   if (event.matches) {
-    addColumn.classList.add("modal-column");
-
-    // Adds "Adicionar" and "Fechar" buttons
+    // Small screens ou zoom alto: mostramos o botão e botão de fechar,
+    // mas garantimos que o modal esteja fechado
     addBtn.style.display = "flex";
     closeModalBtn.style.display = "block";
 
-    checkLocalStorage();
-  } else {
-    // Removes modal classes from body and column
     document.body.classList.remove("show-modal");
-    document.body.style.overflow = ""; // Ensures that the body scroll returns
-
-    // Removes modal style class from column
-    // It will go back to having only the .add-column styles
     addColumn.classList.remove("modal-column");
-
-    // Removes "Adicionar" and "Fechar" buttons
+    document.body.style.overflow = "";
+  } else {
+    // Desktop: escondemos botões de mobile
     addBtn.style.display = "none";
     closeModalBtn.style.display = "none";
 
-    checkLocalStorage();
+    document.body.classList.remove("show-modal");
+    addColumn.classList.remove("modal-column");
+    document.body.style.overflow = "";
   }
+
+  checkLocalStorage();
 }
 
 function checkLocalStorage() {
@@ -90,15 +85,15 @@ function checkLocalStorage() {
     addColumn.style.display = "none";
     listColumn.style.display = "none";
 
-    createMessage("info", "ℹ️ Voltando para a página incial...");
+    createMessage("info", "ℹ️ Voltando para a página inicial...");
     setTimeout(() => {
       window.location.href = "../index.html";
     }, 3000);
   }
 }
 
-// Attaches a listener for the 'change' event on the media query
+// Monitora mudança de viewport/zoom
 mediaQueryMax768.addEventListener("change", handleMediaQueryChange);
 
-// Runs the function once on page load to set the initial state
+// Configuração inicial ao carregar a página
 handleMediaQueryChange(mediaQueryMax768);
