@@ -37,10 +37,13 @@
 }
 
 /* === GLOBAL STRUCTURE === */
+html {
+  font-size: 1rem;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--text-primary);
-  font-size: 1rem;
   line-height: 1.5;
 }
 
