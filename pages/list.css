@@ -62,30 +62,6 @@
   padding: 24px;
 }
 
-.item-container .add-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  font-size: 1.25rem;
-  padding: 8px;
-  border: 2px solid var(--color-primary);
-  border-radius: 24px;
-  background-color: var(--color-surface);
-  color: var(--color-primary);
-}
-
-.item-container .add-btn:hover {
-  background-color: var(--color-primary);
-  color: var(--text-inverted);
-}
-
-.item-container .add-btn:focus {
-  background-color: var(--color-primary);
-  color: var(--text-inverted);
-  box-shadow: var(--shadow-blue);
-}
-
 @media (max-width: 48em) {
   /* === OVERLAY (DARK BACKGROUND) */
   .overlay {
@@ -133,6 +109,30 @@
   /* Hides body scroll when modal is open */
   body.show-modal {
     overflow: hidden;
+  }
+
+  .item-container .add-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    font-size: 1.25rem;
+    padding: 8px;
+    border: 2px solid var(--color-primary);
+    border-radius: 24px;
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+  }
+
+  .item-container .add-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--text-inverted);
+  }
+
+  .item-container .add-btn:focus {
+    background-color: var(--color-primary);
+    color: var(--text-inverted);
+    box-shadow: var(--shadow-blue);
   }
 }
 
