@@ -10,7 +10,7 @@ const addColumn = document.querySelector(".add-column");
 const listColumn = document.querySelector(".list-column");
 const itemContainer = document.querySelector(".item-container");
 
-const mediaQueryMax768 = window.matchMedia("(max-width: 768px)");
+const mediaQueryMax768 = window.matchMedia("(max-width: 48em)");
 
 // Updates title and header
 if (listName && h1) {
