@@ -62,7 +62,7 @@
   padding: 24px;
 }
 
-@media (max-width: 49em) {
+@media (max-width: 48em) {
   /* === OVERLAY (DARK BACKGROUND) */
   .overlay {
     position: fixed;
