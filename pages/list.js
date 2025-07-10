@@ -8,6 +8,7 @@ const closeBtn = document.querySelector(".floating-btn");
 const addBtn = document.querySelector(".add-btn");
 const addColumn = document.querySelector(".add-column");
 const listColumn = document.querySelector(".list-column");
+const itemContainer = document.querySelector(".item-container");
 
 const mediaQueryMax768 = window.matchMedia("(max-width: 768px)");
 
@@ -55,16 +56,14 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/*
-  Adjusts button/column visibility according to media query,
-  but does NOT open the modal automatically.
-*/
+// Adjusts button/column visibility according to media query,
+// but does NOT open the modal automatically.
 function handleMediaQueryChange(event) {
   if (event.matches) {
-    /* 
-      Small screens or high zoom: shows the button and close button,
-      but ensure the modal is closed.
-    */
+    // Mobile: Adds mobile buttons
+    if (!itemContainer.contains(addBtn)) itemContainer.appendChild(addBtn);
+    if (!addColumn.contains(closeModalBtn))
+      addColumn.appendChild(closeModalBtn);
     addBtn.style.display = "flex";
     closeModalBtn.style.display = "block";
 
@@ -72,9 +71,9 @@ function handleMediaQueryChange(event) {
     addColumn.classList.remove("modal-column");
     document.body.style.overflow = "";
   } else {
-    // Desktop: Hides mobile buttons
-    addBtn.style.display = "none";
-    closeModalBtn.style.display = "none";
+    // Desktop: Removes mobile buttons
+    if (itemContainer.contains(addBtn)) addBtn.remove();
+    if (addColumn.contains(closeModalBtn)) closeModalBtn.remove();
 
     document.body.classList.remove("show-modal");
     addColumn.classList.remove("modal-column");
