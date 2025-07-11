@@ -6,11 +6,11 @@ const closeModalBtn = document.getElementById("closeModalBtn");
 const h1 = document.querySelector("h1");
 const closeBtn = document.querySelector(".floating-btn");
 const addBtn = document.querySelector(".add-btn");
-const addColumn = document.querySelector(".add-column");
+const addColumn = document.getElementById("addColumn");
 const listColumn = document.querySelector(".list-column");
 const itemContainer = document.querySelector(".item-container");
 
-const mediaQueryMax768 = window.matchMedia("(max-width: 768px)");
+const mediaQueryMax768 = window.matchMedia("(max-width: 48em)");
 
 // Updates title and header
 if (listName && h1) {
@@ -40,6 +40,7 @@ function openModal() {
 }
 
 function closeModal() {
+  addColumn.classList.remove("modal-column");
   document.body.classList.remove("show-modal");
   document.body.style.overflow = ""; // Restores scroll
 }
@@ -59,25 +60,10 @@ document.addEventListener("keydown", (event) => {
 // Adjusts button/column visibility according to media query,
 // but does NOT open the modal automatically.
 function handleMediaQueryChange(event) {
-  if (event.matches) {
-    // Mobile: Adds mobile buttons
-    if (!itemContainer.contains(addBtn)) itemContainer.appendChild(addBtn);
-    if (!addColumn.contains(closeModalBtn))
-      addColumn.appendChild(closeModalBtn);
-    addBtn.style.display = "flex";
-    closeModalBtn.style.display = "block";
-
-    document.body.classList.remove("show-modal");
-    addColumn.classList.remove("modal-column");
-    document.body.style.overflow = "";
-  } else {
-    // Desktop: Removes mobile buttons
-    if (itemContainer.contains(addBtn)) addBtn.remove();
-    if (addColumn.contains(closeModalBtn)) closeModalBtn.remove();
-
-    document.body.classList.remove("show-modal");
-    addColumn.classList.remove("modal-column");
-    document.body.style.overflow = "";
+  if (!event.matches) {
+    if (document.body.classList.contains("show-modal")) {
+      closeModal();
+    }
   }
 
   checkLocalStorage();

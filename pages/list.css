@@ -10,7 +10,6 @@
 }
 
 .add-column {
-  display: none;
   padding: 24px;
 }
 
@@ -97,6 +96,10 @@
     z-index: 1000;
   }
 
+  .add-column {
+    display: none;
+  }
+
   .show-modal .overlay {
     display: block; /* Shows overlay and modal when screen is small */
   }
@@ -136,7 +139,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .overlay {
     display: none;
   }
