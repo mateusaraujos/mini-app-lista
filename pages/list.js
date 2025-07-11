@@ -3,20 +3,26 @@ import { createMessage } from "../script.js";
 const listName = localStorage.getItem("listName");
 const modalOverlay = document.getElementById("overlay");
 const closeModalBtn = document.getElementById("closeModalBtn");
-const h1 = document.querySelector("h1");
 const closeBtn = document.querySelector(".floating-btn");
 const addBtn = document.querySelector(".add-btn");
 const addColumn = document.getElementById("addColumn");
 const listColumn = document.querySelector(".list-column");
-const itemContainer = document.querySelector(".item-container");
-
 const mediaQueryMax768 = window.matchMedia("(max-width: 48em)");
 
-// Updates title and header
-if (listName && h1) {
-  document.title = `${listName} | Lista Criada`;
-  h1.innerText = listName;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const listPage = document.querySelector(".list-page");
+  const h1 = document.querySelector("h1");
+
+  if (listPage) {
+    listPage.focus();
+  }
+
+  // Updates title and header
+  if (listName && h1) {
+    document.title = `${listName} | Lista Criada`;
+    h1.innerText = listName;
+  }
+});
 
 // Main column "X" button
 closeBtn.addEventListener("click", () => {
