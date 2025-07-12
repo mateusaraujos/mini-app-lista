@@ -13,7 +13,7 @@
 
 ## 📸 Screenshots
 
-### Interface inicialv
+### Interface inicial
 
 <p align="center">
     <img src="./assets/readme/homeInterface.png" alt="Interface Inicial" width="400" />
