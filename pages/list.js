@@ -43,12 +43,14 @@ function openModal() {
   addColumn.classList.add("modal-column");
   document.body.classList.add("show-modal");
   document.body.style.overflow = "hidden"; // Blocks body scrolling
+  closeModalBtn.focus();
 }
 
 function closeModal() {
   addColumn.classList.remove("modal-column");
   document.body.classList.remove("show-modal");
   document.body.style.overflow = ""; // Restores scroll
+  addBtn.focus();
 }
 
 // Closes modal in various situations
