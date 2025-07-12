@@ -64,12 +64,26 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
           quas.
         </p>
-        <button id="closeModalBtn">Fechar</button>
+        <button
+          title="Fechar janela"
+          aria-label="Fechar janela"
+          id="closeModalBtn"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">
+            close
+          </span>
+        </button>
       </section>
 
       <main class="list-column">
-        <button class="floating-btn">
-          <span class="material-symbols-outlined">close</span>
+        <button
+          title="Deletar lista"
+          aria-label="Deletar lista"
+          class="floating-btn"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">
+            delete_forever
+          </span>
         </button>
 
         <div class="title-container">
@@ -79,8 +93,14 @@
         <div class="item-container">
           <article class="item"></article>
 
-          <button class="add-btn">
-            <span class="material-symbols-outlined">add_circle</span>
+          <button
+            title="Adicionar item à lista"
+            aria-label="Adicionar item à lista"
+            class="add-btn"
+          >
+            <span class="material-symbols-outlined" aria-hidden="true">
+              format_list_bulleted_add
+            </span>
             <span>Adicionar</span>
           </button>
         </div>
