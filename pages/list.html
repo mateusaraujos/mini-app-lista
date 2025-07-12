@@ -15,55 +15,6 @@
     <div class="list-page">
       <div id="overlay" class="overlay"></div>
       <section id="addColumn" class="add-column">
-        <h3>Adicionar item</h3>
-        <p>
-          Este é o conteúdo da sua coluna flutuante. Ele terá rolagem se for
-          muito longo.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quas.
-        </p>
         <button
           title="Fechar janela"
           aria-label="Fechar janela"
@@ -73,6 +24,36 @@
             close
           </span>
         </button>
+        <form id="addForm">
+          <h3>Criar item</h3>
+          <div class="input-container">
+            <label for="itemTitle">Título:</label>
+            <input
+              type="text"
+              id="itemTitle"
+              title="Digite um título para o item."
+            />
+            <small class="error-msg" id="titleError"></small>
+          </div>
+
+          <div class="input-container">
+            <label for="itemDesc">Descrição:</label>
+            <textarea
+              id="itemDesc"
+              title="Digite uma descrição para o item."
+            ></textarea>
+            <small class="error-msg" id="descError"></small>
+          </div>
+
+          <button
+            type="submit"
+            title="Criar item"
+            aria-label="Criar item da lista"
+          >
+            <span class="material-symbols-outlined">add_notes</span>
+            <span>Criar</span>
+          </button>
+        </form>
       </section>
 
       <main class="list-column">

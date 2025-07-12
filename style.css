@@ -65,7 +65,8 @@ button:focus {
   filter: brightness(1.2);
 }
 
-input {
+input,
+textarea {
   outline: none;
 }
 
