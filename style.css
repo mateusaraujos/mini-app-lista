@@ -156,7 +156,7 @@ input {
 
 .container main {
   margin: 20vh 0;
-  width: 70vw;
+  width: 60vw;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
@@ -182,7 +182,7 @@ input {
 
 #title-form #title {
   flex: 2;
-  padding: 16px;
+  padding: 8px 16px;
   border: 2px solid var(--border-color);
   border-radius: 480px;
   font-size: 1rem;
@@ -202,14 +202,18 @@ input {
 }
 
 #title-form button {
-  flex: 1;
-  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
   border: 2px solid var(--color-primary);
   border-radius: 480px;
   font-size: 1.2rem;
   background-color: var(--color-primary);
   color: var(--text-inverted);
   transition: background-color 0.3s;
+  flex: 1;
 }
 
 #title-form button:hover {
@@ -233,7 +237,7 @@ input {
 
   .container main {
     margin: 0;
-    width: 80vw;
+    width: 70vw;
     text-align: left;
   }
 
@@ -248,7 +252,7 @@ input {
 
 @media (min-width: 1024px) {
   .container main {
-    width: 70vw;
+    width: 60vw;
     max-width: 1024px;
   }
 
