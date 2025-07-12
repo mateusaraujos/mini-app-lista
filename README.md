@@ -16,7 +16,7 @@
 ### Interface inicialv
 
 <p align="center">
-    <img src="./assets/homeInterface.png" alt="Interface Inicial" width="400" />
+    <img src="./assets/readme/homeInterface.png" alt="Interface Inicial" width="400" />
 </p>
 
 ### Alertas visuais
@@ -24,19 +24,19 @@
 - ✅ Sucesso (ao adicionar um nome válido)
 
   <p align="center">
-    <img src="./assets/successAlert.gif" alt="Alerta de Sucesso" width="400" />
+    <img src="./assets/readme/successAlert.gif" alt="Alerta de Sucesso" width="400" />
   </p>
 
 - ❌ Erro (ao tentar adicionar um campo vazio)
 
   <p align="center">
-    <img src="./assets/errorAlert.gif" alt="Alerta de Erro" width="400" />
+    <img src="./assets/readme/errorAlert.gif" alt="Alerta de Erro" width="400" />
   </p>
 
 - ⚠️ Atenção (ao tentar adicionar um nome com menos de 3 caracteres)
 
   <p align="center">
-    <img src="./assets/warningAlert.gif" alt="Alerta de Atenção" width="400" />
+    <img src="./assets/readme/warningAlert.gif" alt="Alerta de Atenção" width="400" />
   </p>
 
 ## 🧠 Tecnologias utilizadas
@@ -76,10 +76,11 @@ mini-app-lista/
 ├── style.css
 ├── script.js
 ├── assets/
-│   ├── homeInterface.png
-│   ├── successAlert.gif
-│   ├── errorAlert.gif
-│   └── warningAlert.gif
+│   └── readme/
+│       ├── homeInterface.png
+│       ├── successAlert.gif
+│       ├── errorAlert.gif
+│       └── warningAlert.gif
 └── pages/
     ├── list.html
     ├── list.css
