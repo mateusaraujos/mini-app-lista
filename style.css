@@ -177,7 +177,7 @@ input {
 #title-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 #title-form #title {
@@ -205,11 +205,11 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   padding: 8px 16px;
   border: 2px solid var(--color-primary);
   border-radius: 480px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background-color: var(--color-primary);
   color: var(--text-inverted);
   transition: background-color 0.3s;
@@ -222,6 +222,10 @@ input {
 
 #title-form button:focus {
   box-shadow: var(--shadow-blue);
+}
+
+#title-form button span:first-child {
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -237,7 +241,7 @@ input {
 
   .container main {
     margin: 0;
-    width: 70vw;
+    width: 60vw;
     text-align: left;
   }
 
@@ -252,7 +256,6 @@ input {
 
 @media (min-width: 1024px) {
   .container main {
-    width: 60vw;
     max-width: 1024px;
   }
 

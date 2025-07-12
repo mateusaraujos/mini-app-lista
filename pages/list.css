@@ -130,7 +130,7 @@
     align-items: center;
     gap: 8px;
     font-size: 1.25rem;
-    padding: 8px;
+    padding: 8px 32px;
     border: 2px solid var(--color-primary);
     border-radius: 24px;
     background-color: var(--color-surface);
