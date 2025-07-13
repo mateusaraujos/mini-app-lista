@@ -1,4 +1,4 @@
-import { createMessage } from "../script.js";
+import { displayMessage } from "../script.js";
 
 const listName = localStorage.getItem("listName");
 const modalOverlay = document.getElementById("overlay");
@@ -82,7 +82,7 @@ function checkLocalStorage() {
     addColumn.style.display = "none";
     listColumn.style.display = "none";
 
-    createMessage("info", "ℹ️ Voltando para a página inicial...");
+    displayMessage("info", "ℹ️ Voltando para a página inicial...");
     setTimeout(() => {
       window.location.href = "../index.html";
     }, 3000);
