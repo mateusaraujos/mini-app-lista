@@ -98,6 +98,30 @@
   resize: none !important;
 }
 
+.item-container .add-btn,
+#addForm button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 1rem;
+  padding: 8px 32px;
+  border: 2px solid var(--color-primary);
+  border-radius: 24px;
+  background-color: var(--color-primary);
+  color: var(--text-inverted);
+}
+
+.item-container .add-btn:focus,
+#addForm button:focus {
+  box-shadow: var(--shadow-blue);
+}
+
+.item-container .add-btn span:first-child,
+#addForm button span:first-child {
+  font-size: 1rem;
+}
+
 .list-column .title-container {
   padding: 20px 20px 20px 24px;
   border-bottom: 1px solid var(--border-color);
@@ -177,30 +201,6 @@
   /* Hides body scroll when modal is open */
   body.show-modal {
     overflow: hidden;
-  }
-
-  .item-container .add-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.25rem;
-    padding: 8px 32px;
-    border: 2px solid var(--color-primary);
-    border-radius: 24px;
-    background-color: var(--color-surface);
-    color: var(--color-primary);
-  }
-
-  .item-container .add-btn:hover {
-    background-color: var(--color-primary);
-    color: var(--text-inverted);
-  }
-
-  .item-container .add-btn:focus {
-    background-color: var(--color-primary);
-    color: var(--text-inverted);
-    box-shadow: var(--shadow-blue);
   }
 }
 

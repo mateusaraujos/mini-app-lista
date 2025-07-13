@@ -54,6 +54,7 @@ h1 {
 button {
   cursor: pointer;
   user-select: none;
+  box-shadow: var(--shadow-default);
 }
 
 button:hover {
@@ -68,6 +69,7 @@ button:focus {
 input,
 textarea {
   outline: none;
+  box-shadow: var(--shadow-default);
 }
 
 /* === COMPONENTS === */
