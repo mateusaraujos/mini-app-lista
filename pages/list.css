@@ -26,7 +26,7 @@
 .add-column #closeModalBtn,
 .list-column .floating-btn {
   position: absolute;
-  top: 35px;
+  top: 24px;
   right: 20px;
   width: 32px;
   height: 32px;
@@ -90,6 +90,18 @@
   resize: none !important;
 }
 
+.list-column .title-container {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.list-column .title-container h1 {
+  font-size: 2.5rem;
+  max-width: 90%;
+  margin: 0 !important;
+  line-height: 2.2rem;
+}
+
 .item-container .add-btn,
 #addForm button {
   display: flex;
@@ -112,17 +124,6 @@
 .item-container .add-btn span:first-child,
 #addForm button span:first-child {
   font-size: 1rem;
-}
-
-.list-column .title-container {
-  padding: 20px 20px 20px 24px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.list-column .title-container h1 {
-  font-size: 2.5rem;
-  max-width: 90%;
-  margin: 0 !important;
 }
 
 .list-column .item-container {
