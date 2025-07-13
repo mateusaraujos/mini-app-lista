@@ -146,6 +146,19 @@
     scrollbar-color: var(--scrollbar-color);
     display: none;
     z-index: 1000;
+    animation: down 2s forwards;
+  }
+
+  @keyframes down {
+    0% {
+      transform: translate(-50%, -200%);
+    }
+    20% {
+      transform: translate(-50%, 0%);
+    }
+    100% {
+      transform: translate(-50%, 0%);
+    }
   }
 
   .add-column {
