@@ -72,6 +72,10 @@ textarea {
   box-shadow: var(--shadow-default);
 }
 
+label {
+  user-select: none;
+}
+
 /* === COMPONENTS === */
 .message-overlay {
   position: fixed;

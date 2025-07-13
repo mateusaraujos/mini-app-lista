@@ -64,11 +64,16 @@
 
 #addForm h3 {
   color: var(--color-primary);
+  line-height: 1rem;
 }
 
 .input-container {
   display: flex;
   flex-direction: column;
+}
+
+.input-container label {
+  margin-left: 16px;
 }
 
 .input-container #itemTitle,
@@ -216,14 +221,22 @@
 
   .list-page {
     grid-template-columns: 1fr 2fr;
+    max-width: 1720px; /* Define the maximum width for the container */
+    margin: 0 auto; /* Optional: Center the container */
   }
 
   .add-column {
     display: block;
+    margin: 24px;
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-default);
+    height: max-content;
+    border-radius: 16px;
   }
 
   .list-column {
     border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
   }
 
   .list-column .floating-btn {
