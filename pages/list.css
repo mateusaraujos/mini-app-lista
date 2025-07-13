@@ -33,12 +33,6 @@
   padding: 2px;
   border: 2px solid var(--color-error);
   border-radius: 50%;
-  background-color: var(--color-surface);
-  color: var(--color-error);
-}
-
-.add-column #closeModalBtn:hover,
-.list-column .floating-btn:hover {
   background-color: var(--color-error);
   color: var(--color-surface);
 }
@@ -46,8 +40,6 @@
 .add-column #closeModalBtn:focus,
 .list-column .floating-btn:focus {
   box-shadow: var(--shadow-red);
-  background-color: var(--color-error);
-  color: var(--color-surface);
 }
 
 #closeModalBtn span,
