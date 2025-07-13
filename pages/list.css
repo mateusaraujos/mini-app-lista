@@ -31,14 +31,22 @@
   width: 32px;
   height: 32px;
   padding: 2px;
-  border: 2px solid var(--color-error);
+  border: 2px solid var(--color-secondary);
   border-radius: 50%;
-  background-color: var(--color-error);
+  background-color: var(--color-secondary);
   color: var(--color-surface);
+}
+
+.add-column #closeModalBtn:hover,
+.list-column .floating-btn:hover {
+  background-color: var(--color-error);
+  border: 2px solid var(--color-error);
 }
 
 .add-column #closeModalBtn:focus,
 .list-column .floating-btn:focus {
+  background-color: var(--color-error);
+  border: 2px solid var(--color-error);
   box-shadow: var(--shadow-red);
 }
 
