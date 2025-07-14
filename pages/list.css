@@ -127,7 +127,17 @@
   margin: 24px;
 }
 
-.item-container .item {
+.item-container #emptyList {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.item-container .item-box.show {
+  display: none;
+  width: 100%;
   padding: 24px;
   background-color: var(--color-surface);
   box-shadow: var(--shadow-default);
