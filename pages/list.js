@@ -8,8 +8,12 @@ const addBtn = document.querySelector(".add-btn");
 const addColumn = document.getElementById("addColumn");
 const listColumn = document.querySelector(".list-column");
 const mediaQueryMax768 = window.matchMedia("(max-width: 48em)");
+const itemTitle = document.getElementById("itemTitle");
+const titleError = document.getElementById("titleError");
+let addForm;
 
 document.addEventListener("DOMContentLoaded", () => {
+  addForm = document.getElementById("addForm");
   const listPage = document.querySelector(".list-page");
   const h1 = document.querySelector("h1");
 
@@ -22,7 +26,22 @@ document.addEventListener("DOMContentLoaded", () => {
     document.title = `${listName} | Lista Criada`;
     h1.innerText = listName;
   }
+
+  if (addForm) {
+    addForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      validateItemCreation();
+    });
+  }
 });
+
+function validateItemCreation() {
+  let valid = true;
+
+  if (itemTitle.value.trim() === "") {
+    titleError.innerText = "erro";
+  }
+}
 
 // Main column "X" button
 closeBtn.addEventListener("click", () => {
