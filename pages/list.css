@@ -147,8 +147,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
   margin: 24px;
+  gap: 24px;
 }
 
 .item-container #emptyList {
@@ -160,12 +160,20 @@
 }
 
 .item-container .item-box {
-  display: none;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  gap: 24px;
+}
+
+.item-box.hidden {
+  display: none;
+}
+
+.item-container .item-box article {
   padding: 24px;
   background-color: var(--color-surface);
   box-shadow: var(--shadow-default);
-  height: max-content;
   border-radius: 16px;
   border-bottom: 1px solid var(--border-color);
 }

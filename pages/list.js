@@ -52,7 +52,7 @@ function validateItemCreation() {
     valid = false;
   } else if (title.length < 3) {
     titleError.classList.add("warning");
-    titleError.innerText = "Precisa ter mais de 2 caracteres";
+    titleError.innerText = "Precisa ter mais de 2 caracteres.";
     titleError.style.display = "block";
     valid = false;
   } else {
@@ -66,9 +66,9 @@ function validateItemCreation() {
     descError.innerText = "A descrição não pode estar vazia.";
     descError.style.display = "block";
     valid = false;
-  } else if (desc.length < 30) {
+  } else if (desc.length < 20) {
     descError.classList.add("warning");
-    descError.innerText = "Precisa ter mais palavras";
+    descError.innerText = "Precisa de mais palavras...";
     descError.style.display = "block";
     valid = false;
   } else {
@@ -78,31 +78,87 @@ function validateItemCreation() {
   }
 
   if (valid) {
-    const itemBox = document.querySelector(".item-box");
-
-    const listItem = document.createElement("article");
-
-    const itemContent = document.createElement("div");
-    itemContent.classList.add("item");
-    itemContent.innerHTML = `
-      <h2>${title}</h2>
-      <p>${desc}</p>
-    `;
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remover";
-    removeButton.classList.add("remove-btn");
-    removeButton.addEventListener("click", function () {
-      itemBox.removeChild(listItem);
-    });
-
-    listItem.appendChild(itemContent);
-    listItem.appendChild(removeButton);
-
-    itemBox.appendChild(listItem);
-    itemBox.style.display = "block";
+    createItem(title, desc);
   }
 }
+
+function createItem(title, desc) {
+  const itemBox = document.querySelector(".item-box");
+
+  const listItem = document.createElement("article");
+
+  const itemContent = document.createElement("div");
+  itemContent.classList.add("item");
+  itemContent.innerHTML = `
+    <h2>${title}</h2>
+    <p>${desc}</p>
+  `;
+
+  const removeButton = document.createElement("button");
+  removeButton.textContent = "Remover";
+  removeButton.classList.add("remove-btn");
+  removeButton.addEventListener("click", function () {
+    itemBox.removeChild(listItem);
+    saveList();
+  });
+
+  listItem.appendChild(itemContent);
+  listItem.appendChild(removeButton);
+
+  itemBox.appendChild(listItem);
+
+  saveList();
+}
+
+function saveList() {
+  const currentItems = [];
+
+  document.querySelectorAll(".item-box article").forEach((article) => {
+    const title = article.querySelector("h2").textContent;
+    const desc = article.querySelector("p").textContent;
+    currentItems.push({ title: title, desc: desc });
+  });
+
+  localStorage.setItem("myItemList", JSON.stringify(currentItems));
+
+  if (currentItems.length === 0 && localStorage.getItem("myItemList")) {
+    localStorage.removeItem("myItemList");
+  }
+}
+
+function loadList() {
+  const savedItemsJSON = localStorage.getItem("myItemList");
+  if (savedItemsJSON) {
+    const savedItems = JSON.parse(savedItemsJSON);
+    const itemBox = document.querySelector(".item-box");
+    itemBox.innerHTML = "";
+
+    savedItems.forEach((item) => {
+      const listItem = document.createElement("article");
+
+      const itemContent = document.createElement("div");
+      itemContent.classList.add("item");
+      itemContent.innerHTML = `
+        <h2>${item.title}</h2>
+        <p>${item.desc}</p>
+      `;
+
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "Remover";
+      removeButton.classList.add("remove-btn");
+      removeButton.addEventListener("click", function () {
+        itemBox.removeChild(listItem);
+        saveList();
+      });
+
+      listItem.appendChild(itemContent);
+      listItem.appendChild(removeButton);
+      itemBox.appendChild(listItem);
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadList);
 
 // Main column "X" button
 closeBtn.addEventListener("click", () => {
