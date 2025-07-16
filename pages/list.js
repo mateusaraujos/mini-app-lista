@@ -10,6 +10,8 @@ const listColumn = document.querySelector(".list-column");
 const mediaQueryMax768 = window.matchMedia("(max-width: 48em)");
 const itemTitle = document.getElementById("itemTitle");
 const titleError = document.getElementById("titleError");
+const itemDesc = document.getElementById("itemDesc");
+const descError = document.getElementById("descError");
 let addForm;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36,10 +38,69 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function validateItemCreation() {
+  const title = itemTitle.value.trim();
+  const desc = itemDesc.value.trim();
   let valid = true;
 
-  if (itemTitle.value.trim() === "") {
-    titleError.innerText = "erro";
+  titleError.classList.remove("error", "warning", "success");
+  descError.classList.remove("error", "warning", "success");
+
+  if (title === "") {
+    titleError.classList.add("error");
+    titleError.innerText = "O título não pode estar vazio.";
+    titleError.style.display = "block";
+    valid = false;
+  } else if (title.length < 3) {
+    titleError.classList.add("warning");
+    titleError.innerText = "Precisa ter mais de 2 caracteres";
+    titleError.style.display = "block";
+    valid = false;
+  } else {
+    titleError.classList.add("success");
+    titleError.innerText = "Tudo certo!";
+    titleError.style.display = "block";
+  }
+
+  if (desc === "") {
+    descError.classList.add("error");
+    descError.innerText = "A descrição não pode estar vazia.";
+    descError.style.display = "block";
+    valid = false;
+  } else if (desc.length < 30) {
+    descError.classList.add("warning");
+    descError.innerText = "Precisa ter mais palavras";
+    descError.style.display = "block";
+    valid = false;
+  } else {
+    descError.classList.add("success");
+    descError.innerText = "Tudo certo!";
+    descError.style.display = "block";
+  }
+
+  if (valid) {
+    const itemBox = document.querySelector(".item-box");
+
+    const listItem = document.createElement("article");
+
+    const itemContent = document.createElement("div");
+    itemContent.classList.add("item");
+    itemContent.innerHTML = `
+      <h2>${title}</h2>
+      <p>${desc}</p>
+    `;
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remover";
+    removeButton.classList.add("remove-btn");
+    removeButton.addEventListener("click", function () {
+      itemBox.removeChild(listItem);
+    });
+
+    listItem.appendChild(itemContent);
+    listItem.appendChild(removeButton);
+
+    itemBox.appendChild(listItem);
+    itemBox.style.display = "block";
   }
 }
 
