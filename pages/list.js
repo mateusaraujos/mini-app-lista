@@ -12,6 +12,8 @@ const itemTitle = document.getElementById("itemTitle");
 const titleError = document.getElementById("titleError");
 const itemDesc = document.getElementById("itemDesc");
 const descError = document.getElementById("descError");
+const emptyList = document.getElementById("emptyList");
+const itemBox = document.querySelector(".item-box");
 let addForm;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -35,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
       validateItemCreation();
     });
   }
+
+  loadList();
 });
 
 function validateItemCreation() {
@@ -83,8 +87,6 @@ function validateItemCreation() {
 }
 
 function createItem(title, desc) {
-  const itemBox = document.querySelector(".item-box");
-
   const listItem = document.createElement("article");
 
   const itemContent = document.createElement("div");
@@ -108,6 +110,7 @@ function createItem(title, desc) {
   itemBox.appendChild(listItem);
 
   saveList();
+  updateEmptyListVisibility();
 }
 
 function saveList() {
@@ -124,41 +127,58 @@ function saveList() {
   if (currentItems.length === 0 && localStorage.getItem("myItemList")) {
     localStorage.removeItem("myItemList");
   }
+
+  updateEmptyListVisibility();
 }
 
 function loadList() {
   const savedItemsJSON = localStorage.getItem("myItemList");
+  let hasItems = false;
+
   if (savedItemsJSON) {
     const savedItems = JSON.parse(savedItemsJSON);
-    const itemBox = document.querySelector(".item-box");
     itemBox.innerHTML = "";
 
-    savedItems.forEach((item) => {
-      const listItem = document.createElement("article");
+    if (savedItems.length > 0) {
+      hasItems = true;
+      savedItems.forEach((item) => {
+        const listItem = document.createElement("article");
 
-      const itemContent = document.createElement("div");
-      itemContent.classList.add("item");
-      itemContent.innerHTML = `
+        const itemContent = document.createElement("div");
+        itemContent.classList.add("item");
+        itemContent.innerHTML = `
         <h2>${item.title}</h2>
         <p>${item.desc}</p>
       `;
 
-      const removeButton = document.createElement("button");
-      removeButton.textContent = "Remover";
-      removeButton.classList.add("remove-btn");
-      removeButton.addEventListener("click", function () {
-        itemBox.removeChild(listItem);
-        saveList();
-      });
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remover";
+        removeButton.classList.add("remove-btn");
+        removeButton.addEventListener("click", function () {
+          itemBox.removeChild(listItem);
+          saveList();
+          updateEmptyListVisibility();
+        });
 
-      listItem.appendChild(itemContent);
-      listItem.appendChild(removeButton);
-      itemBox.appendChild(listItem);
-    });
+        listItem.appendChild(itemContent);
+        listItem.appendChild(removeButton);
+        itemBox.appendChild(listItem);
+      });
+    }
   }
+
+  updateEmptyListVisibility();
 }
 
-document.addEventListener("DOMContentLoaded", loadList);
+function updateEmptyListVisibility() {
+  if (itemBox.children.length > 0) {
+    emptyList.classList.remove("show-flex");
+    itemBox.classList.add("show-flex");
+  } else {
+    emptyList.classList.add("show-flex");
+    itemBox.classList.remove("show-flex");
+  }
+}
 
 // Main column "X" button
 closeBtn.addEventListener("click", () => {
