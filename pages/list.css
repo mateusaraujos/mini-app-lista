@@ -26,8 +26,8 @@
 .add-column #closeModalBtn,
 .list-column .floating-btn {
   position: absolute;
-  top: 24px;
-  right: 20px;
+  top: 50px;
+  right: 50px;
   width: 32px;
   height: 32px;
   padding: 2px;
