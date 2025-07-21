@@ -137,8 +137,9 @@
 
 .list-column .title-container h1 {
   font-size: 2.5rem;
-  max-width: 90%;
-  line-height: 2.2rem;
+  padding-right: 8%;
+  overflow-wrap: anywhere; /* Important */
+  line-height: 2.5rem;
 }
 
 .item-container {
@@ -177,6 +178,19 @@
   border-radius: 16px;
   border-bottom: 1px solid var(--border-color);
   animation: slideInFromTopFade 0.6s ease-out forwards;
+}
+
+.item-container .item-box article h2,
+.item-container .item-box article p {
+  overflow-wrap: anywhere;
+}
+
+.item-container .item-box article h2 {
+  line-height: 1.8rem;
+}
+
+.item-container .item-box article p {
+  line-height: 1.5rem;
 }
 
 @keyframes slideInFromTopFade {

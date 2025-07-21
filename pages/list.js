@@ -14,15 +14,15 @@ const itemDesc = document.getElementById("itemDesc");
 const descError = document.getElementById("descError");
 const emptyList = document.getElementById("emptyList");
 const itemBox = document.querySelector(".item-box");
-let addForm;
 
 document.addEventListener("DOMContentLoaded", () => {
-  addForm = document.getElementById("addForm");
-  const listPage = document.querySelector(".list-page");
+  const addForm = document.getElementById("addForm");
   const h1 = document.querySelector("h1");
 
-  if (listPage) {
-    listPage.focus();
+  if (itemTitle && itemDesc) {
+    itemTitle.maxLength = 30;
+    itemDesc.maxLength = 100;
+    itemTitle.focus();
   }
 
   // Updates title and header
@@ -228,6 +228,7 @@ function handleMediaQueryChange(event) {
     if (document.body.classList.contains("show-modal")) {
       closeModal();
     }
+    itemTitle.focus();
   }
 
   checkLocalStorage();
