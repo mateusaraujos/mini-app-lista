@@ -83,8 +83,6 @@
   border-radius: 480px;
   font-size: 1rem;
   font-weight: bold;
-  background-color: var(--color-surface);
-  color: var(--color-primary);
 }
 
 .input-container #itemTitle::placeholder,

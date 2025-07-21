@@ -70,6 +70,18 @@ input,
 textarea {
   outline: none;
   box-shadow: var(--shadow-default);
+  background-color: var(--color-surface) !important;
+  color: var(--color-primary) !important;
+}
+
+input:hover,
+textarea:hover {
+  background-color: var(--color-bg) !important;
+}
+
+input:focus,
+textarea:focus {
+  background-color: var(--color-surface) !important;
 }
 
 label {
@@ -134,21 +146,6 @@ label {
   animation: down-delay-up 3s forwards;
 }
 
-@keyframes down-delay-up {
-  0% {
-    transform: translateY(-20vh);
-  }
-  5% {
-    transform: translateY(2vh);
-  }
-  80% {
-    transform: translateY(2vh);
-  }
-  100% {
-    transform: translateY(-20vh);
-  }
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -194,8 +191,6 @@ label {
   border-radius: 480px;
   font-size: 1rem;
   font-weight: bold;
-  background-color: var(--color-surface);
-  color: var(--color-primary);
 }
 
 #title-form #title::placeholder {
@@ -233,6 +228,21 @@ label {
 
 #title-form button span:first-child {
   font-size: 1rem;
+}
+
+@keyframes down-delay-up {
+  0% {
+    transform: translateY(-20vh);
+  }
+  5% {
+    transform: translateY(2vh);
+  }
+  80% {
+    transform: translateY(2vh);
+  }
+  100% {
+    transform: translateY(-20vh);
+  }
 }
 
 @media (max-width: 768px) {
