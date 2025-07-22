@@ -27,8 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Updates title and header
   if (listName && h1) {
-    document.title = `${listName} | Lista Criada`;
-    h1.innerText = listName;
+    // Capitalizes the first letter of the list name
+    const title = `${listName} | Lista Criada`;
+    document.title = title.charAt(0).toUpperCase() + title.slice(1);
+    h1.innerText = listName.charAt(0).toUpperCase() + listName.slice(1);
   }
 
   if (addForm) {
@@ -92,8 +94,8 @@ function createItem(title, desc) {
   const itemContent = document.createElement("div");
   itemContent.classList.add("item");
   itemContent.innerHTML = `
-    <h2>${title}</h2>
-    <p>${desc}</p>
+    <h2>${title.charAt(0).toUpperCase() + title.slice(1)}</h2>
+    <p>${desc.charAt(0).toUpperCase() + desc.slice(1)}</p>
   `;
 
   const removeButton = document.createElement("button");

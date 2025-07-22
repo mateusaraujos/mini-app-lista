@@ -193,17 +193,6 @@
   line-height: 1.5rem;
 }
 
-@keyframes slideInFromTopFade {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .item-container .add-btn,
 #addForm button {
   display: flex;
@@ -226,6 +215,29 @@
 .item-container .add-btn span:first-child,
 #addForm button span:first-child {
   font-size: 1rem;
+}
+
+@keyframes slideInFromTopFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes down {
+  0% {
+    transform: translate(-50%, -200%);
+  }
+  20% {
+    transform: translate(-50%, 0%);
+  }
+  100% {
+    transform: translate(-50%, 0%);
+  }
 }
 
 @media (max-width: 48em) {
@@ -262,18 +274,6 @@
     display: none;
     z-index: 1000;
     animation: down 2s forwards;
-  }
-
-  @keyframes down {
-    0% {
-      transform: translate(-50%, -200%);
-    }
-    20% {
-      transform: translate(-50%, 0%);
-    }
-    100% {
-      transform: translate(-50%, 0%);
-    }
   }
 
   .add-column {
