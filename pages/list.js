@@ -201,7 +201,7 @@ function openModal() {
   addColumn.classList.add("modal-column");
   document.body.classList.add("show-modal");
   document.body.style.overflow = "hidden"; // Blocks body scrolling
-  closeModalBtn.focus();
+  itemTitle.focus();
 }
 
 function closeModal() {
