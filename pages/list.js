@@ -238,6 +238,8 @@ function handleMediaQueryChange(event) {
 
 function checkLocalStorage() {
   if (!listName) {
+    localStorage.clear();
+
     addColumn.style.display = "none";
     listColumn.style.display = "none";
 
