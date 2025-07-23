@@ -14,9 +14,9 @@ const itemDesc = document.getElementById("itemDesc");
 const descError = document.getElementById("descError");
 const emptyList = document.getElementById("emptyList");
 const itemBox = document.querySelector(".item-box");
+const addForm = document.getElementById("addForm");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const addForm = document.getElementById("addForm");
   const h1 = document.querySelector("h1");
 
   if (itemTitle && itemDesc) {
@@ -61,10 +61,6 @@ function validateItemCreation() {
     titleError.innerText = "Precisa ter mais de 2 caracteres.";
     titleError.style.display = "block";
     valid = false;
-  } else {
-    titleError.classList.add("success");
-    titleError.innerText = "Tudo certo!";
-    titleError.style.display = "block";
   }
 
   if (desc === "") {
@@ -74,17 +70,14 @@ function validateItemCreation() {
     valid = false;
   } else if (desc.length < 20) {
     descError.classList.add("warning");
-    descError.innerText = "Precisa de mais palavras...";
+    descError.innerText = "Precisa ter mais de 20 caracteres.";
     descError.style.display = "block";
     valid = false;
-  } else {
-    descError.classList.add("success");
-    descError.innerText = "Tudo certo!";
-    descError.style.display = "block";
   }
 
   if (valid) {
     createItem(title, desc);
+    addForm.reset();
   }
 }
 
@@ -109,6 +102,8 @@ function createItem(title, desc) {
   listItem.appendChild(itemContent);
   listItem.appendChild(removeButton);
   itemBox.appendChild(listItem);
+
+  listItem.scrollIntoView({ behavior: "smooth", block: "start" });
 
   saveList();
   updateEmptyListVisibility();

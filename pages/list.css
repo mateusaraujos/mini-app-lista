@@ -116,11 +116,6 @@
   color: var(--text-primary);
 }
 
-.input-container .success {
-  background-color: var(--color-success);
-  color: var(--text-primary);
-}
-
 .input-container #itemDesc {
   resize: none !important;
 }
