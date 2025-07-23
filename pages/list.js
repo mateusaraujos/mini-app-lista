@@ -48,9 +48,6 @@ function validateItemCreation() {
   const desc = itemDesc.value.trim();
   let valid = true;
 
-  titleError.classList.remove("error", "warning", "success");
-  descError.classList.remove("error", "warning", "success");
-
   if (title === "") {
     titleError.classList.add("error");
     titleError.innerText = "O título não pode estar vazio.";
@@ -61,6 +58,9 @@ function validateItemCreation() {
     titleError.innerText = "Precisa ter mais de 2 caracteres.";
     titleError.style.display = "block";
     valid = false;
+  } else {
+    titleError.classList.remove("error", "warning");
+    titleError.style.display = "none";
   }
 
   if (desc === "") {
@@ -73,11 +73,18 @@ function validateItemCreation() {
     descError.innerText = "Precisa ter mais de 20 caracteres.";
     descError.style.display = "block";
     valid = false;
+  } else {
+    descError.classList.remove("error", "warning");
+    descError.style.display = "none";
   }
 
   if (valid) {
     createItem(title, desc);
     addForm.reset();
+
+    if (addColumn.classList.contains("modal-column")) {
+      closeModal();
+    }
   }
 }
 
