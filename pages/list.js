@@ -1,6 +1,6 @@
 import { displayMessage } from "../script.js";
 
-const listName = localStorage.getItem("listName");
+const listName = sessionStorage.getItem("listName");
 const modalOverlay = document.getElementById("overlay");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const closeBtn = document.querySelector(".floating-btn");
@@ -124,17 +124,17 @@ function saveList() {
     currentItems.push({ title: title, desc: desc });
   });
 
-  localStorage.setItem("myItemList", JSON.stringify(currentItems));
+  sessionStorage.setItem("myItemList", JSON.stringify(currentItems));
 
-  if (currentItems.length === 0 && localStorage.getItem("myItemList")) {
-    localStorage.removeItem("myItemList");
+  if (currentItems.length === 0 && sessionStorage.getItem("myItemList")) {
+    sessionStorage.removeItem("myItemList");
   }
 
   updateEmptyListVisibility();
 }
 
 function loadList() {
-  const savedItemsJSON = localStorage.getItem("myItemList");
+  const savedItemsJSON = sessionStorage.getItem("myItemList");
   let hasItems = false;
 
   if (savedItemsJSON) {
@@ -185,7 +185,7 @@ function updateEmptyListVisibility() {
 // Main column "X" button
 closeBtn.addEventListener("click", () => {
   if (listName) {
-    localStorage.removeItem("listName");
+    sessionStorage.removeItem("listName");
     location.reload();
   }
 });
@@ -233,12 +233,12 @@ function handleMediaQueryChange(event) {
     itemTitle.focus();
   }
 
-  checkLocalStorage();
+  checkSessionStorage();
 }
 
-function checkLocalStorage() {
+function checkSessionStorage() {
   if (!listName) {
-    localStorage.clear();
+    sessionStorage.clear();
 
     addColumn.style.display = "none";
     listColumn.style.display = "none";

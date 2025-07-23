@@ -28,7 +28,7 @@ function validateTitle() {
   } else {
     displayMessage("success", "✅ Criando sua lista...");
     setTimeout(() => {
-      localStorage.setItem("listName", title.substring(0, 30));
+      sessionStorage.setItem("listName", title.substring(0, 30));
       window.location.href = "pages/list.html";
     }, 1500);
   }
