@@ -108,7 +108,6 @@ function createItem(title, desc) {
 
   listItem.appendChild(itemContent);
   listItem.appendChild(removeButton);
-
   itemBox.appendChild(listItem);
 
   saveList();
@@ -149,9 +148,9 @@ function loadList() {
         const itemContent = document.createElement("div");
         itemContent.classList.add("item");
         itemContent.innerHTML = `
-        <h2>${item.title}</h2>
-        <p>${item.desc}</p>
-      `;
+          <h2>${item.title}</h2>
+          <p>${item.desc}</p>
+        `;
 
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remover";
