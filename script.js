@@ -26,11 +26,21 @@ function validateTitle() {
   } else if (title.length < 3) {
     displayMessage("warning", "⚠️ O título deve ter pelo menos 3 caracteres.");
   } else {
-    displayMessage("success", "✅ Criando sua lista...");
-    setTimeout(() => {
-      sessionStorage.setItem("listName", title.substring(0, 30));
-      window.location.href = "pages/list.html";
-    }, 1500);
+    if (sessionStorage.getItem("listName")) {
+      displayMessage(
+        "info",
+        "🔄 Você já tem uma lista criada.\nRedirecionando para a lista..."
+      );
+      setTimeout(() => {
+        window.location.href = "pages/list.html";
+      }, 3000);
+    } else {
+      displayMessage("success", "✅ Criando sua lista...");
+      setTimeout(() => {
+        sessionStorage.setItem("listName", title.substring(0, 30));
+        window.location.href = "pages/list.html";
+      }, 3000);
+    }
   }
 }
 
@@ -46,11 +56,9 @@ export function displayMessage(type, message) {
   const messageOverlay = document.createElement("div");
 
   // Configures the overlay with the new message
-  setupMessageOverlay(type, message, messageOverlay);
+  setupMessageOverlay(type, message.replace(/\n/g, "<br>"), messageOverlay);
 
-  let timeToRemove = type === "success" ? 1500 : 3000;
-
-  setTimeout(() => messageOverlay.remove(), timeToRemove);
+  setTimeout(() => messageOverlay.remove(), 3000);
 }
 
 function setupMessageOverlay(type, message, messageOverlay) {

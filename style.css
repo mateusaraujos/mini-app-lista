@@ -121,7 +121,7 @@ label {
   box-shadow: var(--shadow-default);
   max-width: 80%;
   text-align: center;
-  animation: down-delay-up 1.5s forwards;
+  animation: down-delay-up 3s forwards;
 }
 
 .message-overlay .warning {
