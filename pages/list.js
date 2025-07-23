@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (listName && h1) {
     // Capitalizes the first letter of the list name
     const title = `${listName} | Lista Criada`;
-    document.title = title.charAt(0).toUpperCase() + title.slice(1);
-    h1.innerText = listName.charAt(0).toUpperCase() + listName.slice(1);
+    document.title = title.replace(/^./, (c) => c.toUpperCase());
+    h1.innerText = listName.replace(/^./, (c) => c.toUpperCase());
   }
 
   if (addForm) {
@@ -94,8 +94,8 @@ function createItem(title, desc) {
   const itemContent = document.createElement("div");
   itemContent.classList.add("item");
   itemContent.innerHTML = `
-    <h2>${title.charAt(0).toUpperCase() + title.slice(1)}</h2>
-    <p>${desc.charAt(0).toUpperCase() + desc.slice(1)}</p>
+    <h2>${title.substring(0, 30).replace(/^./, (c) => c.toUpperCase())}</h2>
+    <p>${desc.substring(0, 100).replace(/^./, (c) => c.toUpperCase())}</p>
   `;
 
   const removeButton = document.createElement("button");
