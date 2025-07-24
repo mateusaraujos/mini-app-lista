@@ -218,10 +218,6 @@ label {
   flex: 1;
 }
 
-#title-form button:hover {
-  box-shadow: 0 0 16px var(--shadow-default);
-}
-
 #title-form button:focus {
   box-shadow: var(--shadow-blue);
 }

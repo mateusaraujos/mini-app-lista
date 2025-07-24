@@ -99,12 +99,19 @@ function createItem(title, desc) {
   `;
 
   const removeButton = document.createElement("button");
-  removeButton.textContent = "Remover";
   removeButton.classList.add("remove-btn");
+  removeButton.setAttribute("aria-label", "Remover item");
+  removeButton.setAttribute("title", "Remover item");
   removeButton.addEventListener("click", function () {
     itemBox.removeChild(listItem);
     saveList();
   });
+
+  const span = document.createElement("span");
+  span.innerText = "delete";
+  span.classList.add("material-symbols-outlined");
+  span.setAttribute("aria-hidden", "true");
+  removeButton.appendChild(span);
 
   listItem.appendChild(itemContent);
   listItem.appendChild(removeButton);
@@ -155,13 +162,20 @@ function loadList() {
         `;
 
         const removeButton = document.createElement("button");
-        removeButton.textContent = "Remover";
+        removeButton.setAttribute("aria-label", "Remover item");
+        removeButton.setAttribute("title", "Remover item");
         removeButton.classList.add("remove-btn");
         removeButton.addEventListener("click", function () {
           itemBox.removeChild(listItem);
           saveList();
           updateEmptyListVisibility();
         });
+
+        const span = document.createElement("span");
+        span.innerText = "delete";
+        span.classList.add("material-symbols-outlined");
+        span.setAttribute("aria-hidden", "true");
+        removeButton.appendChild(span);
 
         listItem.appendChild(itemContent);
         listItem.appendChild(removeButton);

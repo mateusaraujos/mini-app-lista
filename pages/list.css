@@ -167,6 +167,7 @@
 }
 
 .item-container .item-box article {
+  position: relative;
   padding: 24px;
   background-color: var(--color-surface);
   box-shadow: var(--shadow-default);
@@ -186,6 +187,29 @@
 
 .item-container .item-box article p {
   line-height: 1.5rem;
+}
+
+.item-container .item-box article .remove-btn {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  background-color: var(--color-error);
+  color: var(--text-inverted);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 2px;
+  box-shadow: var(--shadow-default);
+  border: 2px solid var(--color-error);
+}
+
+.item-container .item-box article .remove-btn:focus {
+  box-shadow: var(--shadow-red);
+}
+
+.item-container .item-box article .remove-btn span {
+  margin-top: 0.5px;
+  margin-left: 0.2px;
 }
 
 .item-container .add-btn,
