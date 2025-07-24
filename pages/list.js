@@ -194,6 +194,8 @@ function updateEmptyListVisibility() {
   } else {
     emptyList.classList.add("show-flex");
     itemBox.classList.remove("show-flex");
+
+    itemTitle.focus();
   }
 }
 
