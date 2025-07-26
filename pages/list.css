@@ -201,6 +201,7 @@
   padding: 2px;
   box-shadow: var(--shadow-default);
   border: 2px solid var(--color-error);
+  opacity: 1;
 }
 
 .item-container .item-box article .remove-btn:focus {
@@ -353,5 +354,17 @@
 
   .item-container .add-btn {
     display: none;
+  }
+
+  .item-container .item-box article .remove-btn {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .item-container .item-box article:hover .remove-btn,
+  .item-container .item-box article:focus-within .remove-btn {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
