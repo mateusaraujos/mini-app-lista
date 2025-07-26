@@ -103,8 +103,11 @@ function createItem(title, desc) {
   removeButton.setAttribute("aria-label", "Remover item");
   removeButton.setAttribute("title", "Remover item");
   removeButton.addEventListener("click", function () {
-    itemBox.removeChild(listItem);
-    saveList();
+    listItem.classList.add("remove-animation");
+    setTimeout(() => {
+      itemBox.removeChild(listItem);
+      saveList();
+    }, 400); // Match the duration of the animation
   });
 
   const span = document.createElement("span");
@@ -166,9 +169,12 @@ function loadList() {
         removeButton.setAttribute("title", "Remover item");
         removeButton.classList.add("remove-btn");
         removeButton.addEventListener("click", function () {
-          itemBox.removeChild(listItem);
-          saveList();
-          updateEmptyListVisibility();
+          listItem.classList.add("remove-animation");
+          setTimeout(() => {
+            itemBox.removeChild(listItem);
+            saveList();
+            updateEmptyListVisibility();
+          }, 400);
         });
 
         const span = document.createElement("span");

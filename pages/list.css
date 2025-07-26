@@ -151,7 +151,7 @@
   gap: 4px;
   font-size: 0.8rem;
   user-select: none;
-  animation: slideInFromTopFade 0.6s ease-out forwards;
+  animation: slideDownFromTopFade 0.6s ease-out forwards;
 }
 
 .item-container .item-box {
@@ -173,7 +173,11 @@
   box-shadow: var(--shadow-default);
   border-radius: 16px;
   border-bottom: 1px solid var(--border-color);
-  animation: slideInFromTopFade 0.6s ease-out forwards;
+  animation: slideDownFromTopFade 0.6s ease-out forwards;
+}
+
+.item-container .item-box article.remove-animation {
+  animation: slideTopFromDownFade 0.4s ease-in forwards;
 }
 
 .item-container .item-box article h2,
@@ -237,7 +241,7 @@
   font-size: 1rem;
 }
 
-@keyframes slideInFromTopFade {
+@keyframes slideDownFromTopFade {
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -245,6 +249,17 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slideTopFromDownFade {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
   }
 }
 
