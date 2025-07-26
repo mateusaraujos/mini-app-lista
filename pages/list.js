@@ -88,27 +88,28 @@ function validateItemCreation() {
   }
 }
 
-function createItem(title, desc) {
+function createListItemElement(title, desc, isNew = false) {
   const listItem = document.createElement("article");
 
   const itemContent = document.createElement("div");
   itemContent.classList.add("item");
+
+  const formattedTitle = isNew
+    ? title.substring(0, 30).replace(/^./, (c) => c.toUpperCase())
+    : title;
+  const formattedDesc = isNew
+    ? desc.substring(0, 100).replace(/^./, (c) => c.toUpperCase())
+    : desc;
+
   itemContent.innerHTML = `
-    <h2>${title.substring(0, 30).replace(/^./, (c) => c.toUpperCase())}</h2>
-    <p>${desc.substring(0, 100).replace(/^./, (c) => c.toUpperCase())}</p>
+    <h2>${formattedTitle}</h2>
+    <p>${formattedDesc}</p>
   `;
 
   const removeButton = document.createElement("button");
   removeButton.classList.add("remove-btn");
   removeButton.setAttribute("aria-label", "Remover item");
   removeButton.setAttribute("title", "Remover item");
-  removeButton.addEventListener("click", function () {
-    listItem.classList.add("remove-animation");
-    setTimeout(() => {
-      itemBox.removeChild(listItem);
-      saveList();
-    }, 400); // Match the duration of the animation
-  });
 
   const span = document.createElement("span");
   span.innerText = "delete";
@@ -118,10 +119,22 @@ function createItem(title, desc) {
 
   listItem.appendChild(itemContent);
   listItem.appendChild(removeButton);
+  removeButton.addEventListener("click", function () {
+    listItem.classList.add("remove-animation");
+    setTimeout(() => {
+      itemBox.removeChild(listItem);
+      saveList();
+      updateEmptyListVisibility();
+    }, 400); // Match the duration of the animation
+  });
+
+  return listItem;
+}
+
+function createItem(title, desc) {
+  const listItem = createListItemElement(title, desc, true); // Pass true for isNew
   itemBox.appendChild(listItem);
-
   listItem.scrollIntoView({ behavior: "smooth", block: "start" });
-
   saveList();
   updateEmptyListVisibility();
 }
@@ -146,50 +159,19 @@ function saveList() {
 
 function loadList() {
   const savedItemsJSON = sessionStorage.getItem("myItemList");
-  let hasItems = false;
+
+  itemBox.innerHTML = ""; // Clear existing items before loading
 
   if (savedItemsJSON) {
     const savedItems = JSON.parse(savedItemsJSON);
-    itemBox.innerHTML = "";
 
     if (savedItems.length > 0) {
-      hasItems = true;
       savedItems.forEach((item) => {
-        const listItem = document.createElement("article");
-
-        const itemContent = document.createElement("div");
-        itemContent.classList.add("item");
-        itemContent.innerHTML = `
-          <h2>${item.title}</h2>
-          <p>${item.desc}</p>
-        `;
-
-        const removeButton = document.createElement("button");
-        removeButton.setAttribute("aria-label", "Remover item");
-        removeButton.setAttribute("title", "Remover item");
-        removeButton.classList.add("remove-btn");
-        removeButton.addEventListener("click", function () {
-          listItem.classList.add("remove-animation");
-          setTimeout(() => {
-            itemBox.removeChild(listItem);
-            saveList();
-            updateEmptyListVisibility();
-          }, 400);
-        });
-
-        const span = document.createElement("span");
-        span.innerText = "delete";
-        span.classList.add("material-symbols-outlined");
-        span.setAttribute("aria-hidden", "true");
-        removeButton.appendChild(span);
-
-        listItem.appendChild(itemContent);
-        listItem.appendChild(removeButton);
+        const listItem = createListItemElement(item.title, item.desc, false);
         itemBox.appendChild(listItem);
       });
     }
   }
-
   updateEmptyListVisibility();
 }
 
