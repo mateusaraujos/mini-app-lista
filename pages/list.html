@@ -15,48 +15,52 @@
     <div class="list-page">
       <div id="overlay" class="overlay"></div>
       <section id="addColumn" class="add-column">
-        <button
-          title="Fechar janela"
-          aria-label="Fechar janela"
-          id="closeModalBtn"
-        >
-          <span class="material-symbols-outlined" aria-hidden="true">
-            close
-          </span>
-        </button>
-        <form id="addForm">
-          <h3>Criar item</h3>
-          <div class="input-container">
-            <label for="itemTitle">Título:</label>
-            <input
-              type="text"
-              id="itemTitle"
-              title="Digite um título para o item."
-              maxlength="30"
-            />
-            <small class="error-msg" id="titleError"></small>
-          </div>
-
-          <div class="input-container">
-            <label for="itemDesc">Descrição:</label>
-            <textarea
-              id="itemDesc"
-              title="Digite uma descrição para o item."
-              maxlength="100"
-              rows="3"
-            ></textarea>
-            <small class="error-msg" id="descError"></small>
-          </div>
-
+        <div class="modal-wrapper">
           <button
-            type="submit"
-            title="Criar item"
-            aria-label="Criar item da lista"
+            title="Fechar janela"
+            aria-label="Fechar janela"
+            id="closeModalBtn"
           >
-            <span class="material-symbols-outlined">add_notes</span>
-            <span>Criar</span>
+            <span class="material-symbols-outlined" aria-hidden="true">
+              close
+            </span>
           </button>
-        </form>
+          <form id="addForm">
+            <h3>Criar item</h3>
+            <div class="input-container">
+              <label for="itemTitle">Título:</label>
+              <input
+                type="text"
+                id="itemTitle"
+                title="Digite um título para o item."
+                maxlength="30"
+              />
+              <small class="error-msg" id="titleError"></small>
+            </div>
+
+            <div class="input-container">
+              <label for="itemDesc">Descrição:</label>
+              <div class="textarea-wrapper">
+                <textarea
+                  id="itemDesc"
+                  title="Digite uma descrição para o item."
+                  maxlength="100"
+                  rows="3"
+                ></textarea>
+              </div>
+              <small class="error-msg" id="descError"></small>
+            </div>
+
+            <button
+              type="submit"
+              title="Criar item"
+              aria-label="Criar item da lista"
+            >
+              <span class="material-symbols-outlined">add_notes</span>
+              <span>Criar</span>
+            </button>
+          </form>
+        </div>
       </section>
 
       <main class="list-column">
