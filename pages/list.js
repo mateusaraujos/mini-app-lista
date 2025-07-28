@@ -248,7 +248,7 @@ function checkSessionStorage() {
     addColumn.style.display = "none";
     listColumn.style.display = "none";
 
-    displayMessage("info", "ℹ️ Voltando para a página inicial...");
+    displayMessage("info", "ℹ️ Lista excluída com sucesso!");
     setTimeout(() => {
       window.location.href = "../index.html";
     }, 3000);
