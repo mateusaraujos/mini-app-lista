@@ -41,12 +41,14 @@
 .list-column .floating-btn:hover {
   background-color: var(--color-error);
   border: 2px solid var(--color-error);
+  color: var(--text-inverted);
 }
 
 .add-column #closeModalBtn:focus,
 .list-column .floating-btn:focus {
   background-color: var(--color-error);
   border: 2px solid var(--color-error);
+  color: var(--text-inverted);
   box-shadow: var(--shadow-red);
 }
 
@@ -82,11 +84,6 @@
   border-radius: 480px;
   font-size: 1rem;
   font-weight: bold;
-}
-
-.input-container #itemTitle::placeholder {
-  font-weight: lighter;
-  color: var(--text-secondary);
 }
 
 .input-container #itemTitle:focus {
@@ -320,7 +317,6 @@
     left: 50%; /* Centers horizontally */
     transform: translate(-50%, 0%); /* Adjusts for exact centering */
     background-color: var(--color-surface); /* Modal background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 85%;
     max-height: 80vh;
     overflow: hidden;

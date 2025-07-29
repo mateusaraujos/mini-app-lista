@@ -1,18 +1,18 @@
 /* === GLOBAL VARIABLES === */
 :root {
-  --color-primary: #0056b3; /* Primary button, links, attention-grabbing titles */
-  --color-secondary: #6c757d; /* Secondary buttons, icons, less important elements */
+  --color-primary: #0051a8; /* Primary button, links, attention-grabbing titles */
+  --color-secondary: #545454; /* Secondary buttons, icons, less important elements */
 
-  --color-success: #28a745; /* Success alerts (positive feedback) */
-  --color-error: #dc3545; /* Error alerts (validation or failure messages) */
-  --color-warning: #ffc107; /* Warning alerts (incomplete fields, caution messages) */
-  --color-info: #17a2b8; /* Info messages (tips, guidance, neutral messages) */
+  --color-success: #5dfe82; /* Success alerts (positive feedback) */
+  --color-error: #b30012; /* Error alerts (validation or failure messages) */
+  --color-warning: #fedd7c; /* Warning alerts (incomplete fields, caution messages) */
+  --color-info: #85efff; /* Info messages (tips, guidance, neutral messages) */
 
   --color-bg: #f8f9fa; /* Page background */
   --color-surface: #ffffff; /* Card background, inputs, inner containers */
   --color-muted: #e9ecef; /* Disabled or neutral element backgrounds */
 
-  --text-primary: #212529; /* Default (primary) text color */
+  --text-primary: #42474d; /* Default (primary) text color */
   --text-secondary: #6c757d; /* Secondary text (captions, descriptions) */
   --text-inverted: #ffffff; /* Inverted text for dark backgrounds (e.g., white text on blue buttons) */
 
@@ -64,6 +64,12 @@ button:hover {
 button:focus {
   outline: none;
   filter: brightness(1.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-weight: lighter;
+  color: var(--text-primary);
 }
 
 input,
@@ -193,11 +199,6 @@ label {
   font-weight: bold;
 }
 
-#title-form #title::placeholder {
-  font-weight: lighter;
-  color: var(--text-secondary);
-}
-
 #title-form #title:focus {
   border: 2px solid var(--color-primary);
   box-shadow: var(--shadow-blue);
@@ -241,35 +242,6 @@ label {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #339cff;
-    --color-secondary: #aaaaaa;
-
-    --color-success: #45dd82;
-    --color-error: #ff6b6b;
-    --color-warning: #ffe066;
-    --color-info: #63cdda;
-
-    --color-bg: #121212;
-    --color-surface: #1e1e1e;
-    --color-muted: #2c2c2c;
-
-    --text-primary: #f1f1f1;
-    --text-secondary: #aaaaaa;
-    --text-inverted: #000000;
-
-    --border-color: #333;
-
-    --shadow-blue: 0 0 0 2px #339cff40;
-    --shadow-green: 0 0 0 2px #45dd8240;
-    --shadow-red: 0 0 0 2px #ff6b6b40;
-    --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.5);
-
-    --scrollbar-color: var(--color-primary) var(--color-bg);
-  }
-}
-
 @media (max-width: 768px) {
   .message-overlay {
     font-size: small;
@@ -303,5 +275,34 @@ label {
 
   #title-form #title {
     flex: 5;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #58aefe;
+    --color-secondary: #aaaaaa;
+
+    --color-success: #003d18;
+    --color-error: #ff6b6b;
+    --color-warning: #383600;
+    --color-info: #003b42;
+
+    --color-bg: #050505;
+    --color-surface: #1e1e1e;
+    --color-muted: #2c2c2c;
+
+    --text-primary: #c4c4c4;
+    --text-secondary: #aaaaaa;
+    --text-inverted: #000000;
+
+    --border-color: #333;
+
+    --shadow-blue: 0 0 0 2px #339cff80;
+    --shadow-green: 0 0 0 2px #45dd8280;
+    --shadow-red: 0 0 0 2px #ff6b6b80;
+    --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+    --scrollbar-color: var(--color-primary) var(--color-bg);
   }
 }
