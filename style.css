@@ -241,6 +241,35 @@ label {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #339cff;
+    --color-secondary: #aaaaaa;
+
+    --color-success: #45dd82;
+    --color-error: #ff6b6b;
+    --color-warning: #ffe066;
+    --color-info: #63cdda;
+
+    --color-bg: #121212;
+    --color-surface: #1e1e1e;
+    --color-muted: #2c2c2c;
+
+    --text-primary: #f1f1f1;
+    --text-secondary: #aaaaaa;
+    --text-inverted: #000000;
+
+    --border-color: #333;
+
+    --shadow-blue: 0 0 0 2px #339cff40;
+    --shadow-green: 0 0 0 2px #45dd8240;
+    --shadow-red: 0 0 0 2px #ff6b6b40;
+    --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+    --scrollbar-color: var(--color-primary) var(--color-bg);
+  }
+}
+
 @media (max-width: 768px) {
   .message-overlay {
     font-size: small;
