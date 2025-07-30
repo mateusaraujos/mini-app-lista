@@ -85,3 +85,18 @@ function setupMessageOverlay(type, message, messageOverlay) {
 
   document.body.appendChild(messageOverlay);
 }
+
+export function updateThemeColor() {
+  const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute("content", darkMode ? "#050505" : "#f8f9fa");
+  }
+}
+
+updateThemeColor();
+
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", updateThemeColor);

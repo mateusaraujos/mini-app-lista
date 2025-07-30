@@ -1,4 +1,4 @@
-import { displayMessage } from "../script.js";
+import { displayMessage, updateThemeColor } from "../script.js";
 
 const listName = sessionStorage.getItem("listName");
 const modalOverlay = document.getElementById("overlay");
@@ -260,3 +260,9 @@ mediaQueryMax768.addEventListener("change", handleMediaQueryChange);
 
 // Initial setup on page load
 handleMediaQueryChange(mediaQueryMax768);
+
+updateThemeColor();
+
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", updateThemeColor);
