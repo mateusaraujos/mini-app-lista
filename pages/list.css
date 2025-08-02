@@ -378,6 +378,7 @@
   .add-column {
     display: block;
     margin: 24px;
+    padding: 0;
     background-color: var(--color-surface);
     box-shadow: var(--shadow-default);
     height: max-content;
@@ -385,8 +386,8 @@
   }
 
   .modal-wrapper {
-    overflow-y: hidden;
-    padding: 0;
+    overflow: hidden;
+    padding: 24px;
   }
 
   .list-column {
