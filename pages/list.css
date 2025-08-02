@@ -354,10 +354,6 @@
   body.show-modal {
     overflow: hidden;
   }
-
-  .item-container {
-    margin-bottom: 40vh;
-  }
 }
 
 @media (min-width: 48em) {
