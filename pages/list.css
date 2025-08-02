@@ -384,6 +384,11 @@
     border-radius: 16px;
   }
 
+  .modal-wrapper {
+    overflow-y: hidden;
+    padding: 0;
+  }
+
   .list-column {
     border-left: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
