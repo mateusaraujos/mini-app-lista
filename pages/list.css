@@ -1,4 +1,4 @@
-/* === COMPONENTS === */
+/* === LAYOUT STRUCTURE === */
 .list-page {
   display: grid;
   grid-auto-flow: dense;
@@ -9,11 +9,13 @@
   scrollbar-color: var(--scrollbar-color);
 }
 
+/* Modal section (hidden on desktop) */
 .add-column {
   padding: 24px;
   position: relative;
 }
 
+/* Close button inside modal */
 .add-column #closeModalBtn {
   top: 8px !important;
   right: 8px !important;
@@ -23,6 +25,7 @@
   position: relative;
 }
 
+/* Shared styles for close and floating buttons */
 .add-column #closeModalBtn,
 .list-column .floating-btn {
   position: absolute;
@@ -38,12 +41,7 @@
 }
 
 .add-column #closeModalBtn:hover,
-.list-column .floating-btn:hover {
-  background-color: var(--color-error);
-  border: 2px solid var(--color-error);
-  color: var(--text-inverted);
-}
-
+.list-column .floating-btn:hover,
 .add-column #closeModalBtn:focus,
 .list-column .floating-btn:focus {
   background-color: var(--color-error);
@@ -58,6 +56,7 @@
   margin-left: 0.2px;
 }
 
+/* === FORM STYLES === */
 #addForm {
   display: flex;
   flex-direction: column;
@@ -78,6 +77,7 @@
   margin-left: 16px;
 }
 
+/* Title input */
 .input-container #itemTitle {
   padding: 8px 16px;
   border: 2px solid var(--border-color);
@@ -91,6 +91,7 @@
   box-shadow: var(--shadow-blue);
 }
 
+/* Error and warning messages */
 .input-container .error-msg {
   display: none;
   margin-left: 16px;
@@ -110,6 +111,7 @@
   color: var(--text-primary);
 }
 
+/* Description textarea */
 .input-container #itemDesc {
   resize: none !important;
   clip-path: inset(0px round 480px);
@@ -137,6 +139,7 @@
   background-color: transparent;
 }
 
+/* === TITLE === */
 .list-column .title-container {
   padding: 24px;
   margin: 24px;
@@ -150,10 +153,11 @@
 .list-column .title-container h1 {
   font-size: 2.5rem;
   padding-right: 8%;
-  overflow-wrap: anywhere; /* Important */
+  overflow-wrap: anywhere;
   line-height: 2.5rem;
 }
 
+/* === LIST ITEMS === */
 .item-container {
   display: flex;
   flex-direction: column;
@@ -162,6 +166,7 @@
   gap: 24px;
 }
 
+/* Empty list placeholder */
 .item-container #emptyList {
   display: none;
   align-items: center;
@@ -178,11 +183,13 @@
   gap: 24px;
 }
 
+/* When items or empty message are visible */
 .item-container #emptyList.show-flex,
 .item-container .item-box.show-flex {
   display: flex;
 }
 
+/* Individual list item */
 .item-container .item-box article {
   position: relative;
   padding: 24px;
@@ -193,10 +200,12 @@
   animation: slideDownFromTopFade 0.6s ease-out forwards;
 }
 
+/* Removal animation */
 .item-container .item-box article.remove-animation {
   animation: slideTopFromDownFade 0.4s ease-in forwards;
 }
 
+/* Text inside items */
 .item-container .item-box article h2,
 .item-container .item-box article p {
   overflow-wrap: anywhere;
@@ -210,6 +219,7 @@
   line-height: 1.5rem;
 }
 
+/* Remove button for each item */
 .item-container .item-box article .remove-btn {
   position: absolute;
   top: 24px;
@@ -234,6 +244,7 @@
   margin-left: 0.2px;
 }
 
+/* === ACTION BUTTONS === */
 .item-container .add-btn,
 #addForm button {
   display: flex;
@@ -258,6 +269,7 @@
   font-size: 1rem;
 }
 
+/* === ANIMATIONS === */
 @keyframes slideDownFromTopFade {
   from {
     opacity: 0;
@@ -292,31 +304,27 @@
   }
 }
 
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 48em) {
-  /* === OVERLAY (DARK BACKGROUND) */
+  /* Overlay for modal background */
   .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(
-      0,
-      0,
-      0,
-      0.7
-    ); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.7);
     display: none;
     z-index: 999;
   }
 
-  /* === MODAL WINDOW (FLOATING) === */
+  /* Modal window behavior */
   .modal-column {
     position: fixed;
-    top: 10%; /* Centers vertically */
-    left: 50%; /* Centers horizontally */
-    transform: translate(-50%, 0%); /* Adjusts for exact centering */
-    background-color: var(--color-surface); /* Modal background */
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: var(--color-surface);
     width: 85%;
     max-height: 80vh;
     overflow: hidden;
@@ -342,15 +350,13 @@
   }
 
   .show-modal .overlay {
-    display: block; /* Shows overlay and modal when screen is small */
+    display: block;
   }
 
-  /* When the body has the class .show-modal, and the column has .modal-column, it appears */
   .show-modal .add-column.modal-column {
     display: block;
   }
 
-  /* Hides body scroll when modal is open */
   body.show-modal {
     overflow: hidden;
   }
@@ -367,8 +373,8 @@
 
   .list-page {
     grid-template-columns: 1fr 2fr;
-    max-width: 1720px; /* Define the maximum width for the container */
-    margin: 0 auto; /* Optional: Center the container */
+    max-width: 1720px;
+    margin: 0 auto;
   }
 
   .add-column {

@@ -1,15 +1,16 @@
 let titleForm, titleInput;
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Ensures the elements of the DOM
+  // Get form and input elements after DOM is loaded
   titleForm = document.getElementById("title-form");
   titleInput = document.getElementById("title");
 
-  // Security check before manipulating the DOM
+  // Set max length if input exists (safety check)
   if (titleInput) {
     titleInput.maxLength = 30;
   }
 
+  // Handle form submission
   if (titleForm) {
     titleForm.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -44,27 +45,25 @@ function validateTitle() {
   }
 }
 
+// Displays a toast message (error, success, etc.)
 export function displayMessage(type, message) {
   const existingOverlay = document.querySelector(".message-overlay");
 
-  // If there is no message, create one
   if (existingOverlay) {
     existingOverlay.remove();
   }
 
-  // Creates a new overlay element
   const messageOverlay = document.createElement("div");
-
-  // Configures the overlay with the new message
   setupMessageOverlay(type, message.replace(/\n/g, "<br>"), messageOverlay);
 
   setTimeout(() => messageOverlay.remove(), 3000);
 }
 
+// Builds the toast overlay element based on message type
 function setupMessageOverlay(type, message, messageOverlay) {
-  // Class for main message container
   messageOverlay.className = "message-overlay";
 
+  // Prevent interaction for non-success/info messages
   if (type !== "success" && type !== "info") {
     messageOverlay.style.pointerEvents = "none";
   }
@@ -86,6 +85,7 @@ function setupMessageOverlay(type, message, messageOverlay) {
   document.body.appendChild(messageOverlay);
 }
 
+// Updates browser UI bar color based on user's system theme
 export function updateThemeColor() {
   const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -95,8 +95,10 @@ export function updateThemeColor() {
   }
 }
 
+// Set initial theme color on load
 updateThemeColor();
 
+// Listen for system theme changes
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", updateThemeColor);

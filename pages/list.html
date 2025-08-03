@@ -3,27 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Sets the theme color for mobile browsers and PWA status bars -->
     <meta name="theme-color" content="#f8f9fa" id="theme-color-meta" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Basic SEO metadata -->
     <meta
       name="description"
       content="Crie uma lista de tarefas simples e rápida."
     />
     <meta name="keywords" content="lista, tarefas, criar, simples, rápido" />
     <meta name="author" content="Mateus Araújo Silva" />
+
     <title>...</title>
+
+    <!-- Google Material Icons (used in buttons) -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
+
+    <!-- Main styles -->
     <link rel="stylesheet" href="../style.css" />
+
+    <!-- Page-specific styles -->
     <link rel="stylesheet" href="./list.css" />
   </head>
+
   <body>
     <div class="list-page">
+      <!-- Modal overlay background -->
       <div id="overlay" class="overlay"></div>
+
+      <!-- Modal for adding a new item -->
       <section id="addColumn" class="add-column">
         <div class="modal-wrapper">
           <button
@@ -35,8 +49,11 @@
               close
             </span>
           </button>
+
           <form id="addForm">
             <h3>Criar item</h3>
+
+            <!-- Item title input -->
             <div class="input-container">
               <label for="itemTitle">Título:</label>
               <input
@@ -48,6 +65,7 @@
               <small class="error-msg" id="titleError"></small>
             </div>
 
+            <!-- Item description input -->
             <div class="input-container">
               <label for="itemDesc">Descrição:</label>
               <div class="textarea-wrapper">
@@ -61,6 +79,7 @@
               <small class="error-msg" id="descError"></small>
             </div>
 
+            <!-- Submit button -->
             <button
               type="submit"
               title="Criar item"
@@ -73,7 +92,9 @@
         </div>
       </section>
 
+      <!-- Main list content -->
       <main class="list-column">
+        <!-- Delete entire list -->
         <button
           title="Deletar lista"
           aria-label="Deletar lista"
@@ -84,19 +105,25 @@
           </span>
         </button>
 
+        <!-- Title of the current list -->
         <div class="title-container">
           <h1>...</h1>
         </div>
 
+        <!-- Container for list items -->
         <div class="item-container">
+          <!-- Empty list message -->
           <div id="emptyList" title="Lista vazia">
             <span class="material-symbols-outlined" aria-hidden="true">
               brightness_alert
             </span>
             <span>Lista vazia</span>
           </div>
+
+          <!-- Items will be dynamically appended here -->
           <div class="item-box"></div>
 
+          <!-- Add new item button -->
           <button
             title="Adicionar item à lista"
             aria-label="Adicionar item à lista"
@@ -111,6 +138,7 @@
       </main>
     </div>
 
+    <!-- Script for list logic -->
     <script src="list.js" type="module"></script>
   </body>
 </html>

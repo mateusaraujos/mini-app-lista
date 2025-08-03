@@ -1,34 +1,39 @@
-/* === GLOBAL VARIABLES === */
+/* === THEME VARIABLES === */
 :root {
-  --color-primary: #0051a8; /* Primary button, links, attention-grabbing titles */
-  --color-secondary: #545454; /* Secondary buttons, icons, less important elements */
+  /* Core colors for UI elements */
+  --color-primary: #0051a8;
+  --color-secondary: #545454;
 
-  --color-success: #5dfe82; /* Success alerts (positive feedback) */
-  --color-error: #b30012; /* Error alerts (validation or failure messages) */
-  --color-warning: #fedd7c; /* Warning alerts (incomplete fields, caution messages) */
-  --color-info: #85efff; /* Info messages (tips, guidance, neutral messages) */
+  /* Semantic status colors */
+  --color-success: #5dfe82;
+  --color-error: #b30012;
+  --color-warning: #fedd7c;
+  --color-info: #85efff;
 
-  --color-bg: #f8f9fa; /* Page background */
-  --color-surface: #ffffff; /* Card background, inputs, inner containers */
-  --color-muted: #e9ecef; /* Disabled or neutral element backgrounds */
+  /* Base background and surface tones */
+  --color-bg: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-muted: #e9ecef;
 
-  --text-primary: #42474d; /* Default (primary) text color */
-  --text-secondary: #6c757d; /* Secondary text (captions, descriptions) */
-  --text-inverted: #ffffff; /* Inverted text for dark backgrounds (e.g., white text on blue buttons) */
+  /* Typography colors */
+  --text-primary: #42474d;
+  --text-secondary: #6c757d;
+  --text-inverted: #ffffff;
 
-  --border-color: #ced4da; /* Borders for inputs, cards, subtle dividers */
+  --border-color: #ced4da;
 
-  --shadow-blue: 0 0 0 2px #0056b340; /* Blue focus shadow for inputs and buttons */
-  --shadow-green: 0 0 0 2px #28a74540; /* Green focus shadow */
-  --shadow-red: 0 0 0 2px #dc354540; /* Red focus shadow */
-  --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for elevation */
+  /* Focus and elevation shadows */
+  --shadow-blue: 0 0 0 2px #0056b340;
+  --shadow-green: 0 0 0 2px #28a74540;
+  --shadow-red: 0 0 0 2px #dc354540;
+  --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   --scrollbar-color: var(--color-primary) var(--color-bg);
 
   --font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* === RESET === */
+/* === CSS RESET === */
 * {
   margin: 0;
   padding: 0;
@@ -36,7 +41,7 @@
   font-family: var(--font-family);
 }
 
-/* === GLOBAL STRUCTURE === */
+/* === GLOBAL ELEMENTS === */
 html {
   font-size: 1rem;
 }
@@ -51,27 +56,24 @@ h1 {
   color: var(--color-primary);
 }
 
+label {
+  user-select: none;
+}
+
+/* === BUTTONS === */
 button {
   cursor: pointer;
   user-select: none;
   box-shadow: var(--shadow-default);
 }
 
-button:hover {
-  filter: brightness(1.2);
-}
-
+button:hover,
 button:focus {
-  outline: none;
   filter: brightness(1.2);
+  outline: none;
 }
 
-input::placeholder,
-textarea::placeholder {
-  font-weight: lighter;
-  color: var(--text-primary);
-}
-
+/* === INPUTS & TEXTAREAS === */
 input,
 textarea {
   outline: none;
@@ -90,11 +92,13 @@ textarea:focus {
   background-color: var(--color-surface) !important;
 }
 
-label {
-  user-select: none;
+input::placeholder,
+textarea::placeholder {
+  font-weight: lighter;
+  color: var(--text-primary);
 }
 
-/* === COMPONENTS === */
+/* === NOTIFICATION TOASTS === */
 .message-overlay {
   position: fixed;
   top: 0;
@@ -108,50 +112,39 @@ label {
   user-select: none;
 }
 
-.message-overlay .error {
-  background-color: var(--color-error);
-  color: var(--text-inverted);
+.message-overlay .error,
+.message-overlay .success,
+.message-overlay .warning,
+.message-overlay .info {
   border-radius: 8px;
   padding: 12px;
   box-shadow: var(--shadow-default);
   max-width: 80%;
   text-align: center;
   animation: down-delay-up 3s forwards;
+}
+
+.message-overlay .error {
+  background-color: var(--color-error);
+  color: var(--text-inverted);
 }
 
 .message-overlay .success {
   background-color: var(--color-success);
   color: var(--text-primary);
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: var(--shadow-default);
-  max-width: 80%;
-  text-align: center;
-  animation: down-delay-up 3s forwards;
 }
 
 .message-overlay .warning {
   background-color: var(--color-warning);
   color: var(--text-primary);
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: var(--shadow-default);
-  max-width: 80%;
-  text-align: center;
-  animation: down-delay-up 3s forwards;
 }
 
 .message-overlay .info {
   background-color: var(--color-info);
   color: var(--text-primary);
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: var(--shadow-default);
-  max-width: 80%;
-  text-align: center;
-  animation: down-delay-up 3s forwards;
 }
 
+/* === PAGE CONTAINER === */
 .container {
   display: flex;
   flex-direction: column;
@@ -184,6 +177,7 @@ label {
   font-size: 2rem;
 }
 
+/* === FORM STYLING === */
 #title-form {
   display: flex;
   flex-direction: column;
@@ -227,6 +221,7 @@ label {
   font-size: 1rem;
 }
 
+/* === TOAST ANIMATION === */
 @keyframes down-delay-up {
   0% {
     transform: translateY(-20vh);
@@ -242,6 +237,7 @@ label {
   }
 }
 
+/* === RESPONSIVE BREAKPOINTS === */
 @media (max-width: 768px) {
   .message-overlay {
     font-size: small;
@@ -278,6 +274,7 @@ label {
   }
 }
 
+/* === DARK MODE === */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-primary: #58aefe;

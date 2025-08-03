@@ -1,5 +1,6 @@
 import { displayMessage, updateThemeColor } from "../script.js";
 
+// DOM element references
 const listName = sessionStorage.getItem("listName");
 const modalOverlay = document.getElementById("overlay");
 const closeModalBtn = document.getElementById("closeModalBtn");
@@ -25,9 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     itemTitle.focus();
   }
 
-  // Updates title and header
+  // Sets document and heading title
   if (listName && h1) {
-    // Capitalizes the first letter of the list name
     const title = `${listName} | Lista Criada`;
     document.title = title.replace(/^./, (c) => c.toUpperCase());
     h1.innerText = listName.replace(/^./, (c) => c.toUpperCase());
@@ -43,11 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
   loadList();
 });
 
+// Validates input before creating item
 function validateItemCreation() {
   const title = itemTitle.value.trim();
   const desc = itemDesc.value.trim();
   let valid = true;
 
+  // Title validation
   if (title === "") {
     titleError.classList.add("error");
     titleError.innerText = "O título não pode estar vazio.";
@@ -63,6 +65,7 @@ function validateItemCreation() {
     titleError.style.display = "none";
   }
 
+  // Description validation
   if (desc === "") {
     descError.classList.add("error");
     descError.innerText = "A descrição não pode estar vazia.";
@@ -78,6 +81,7 @@ function validateItemCreation() {
     descError.style.display = "none";
   }
 
+  // Creates item if all fields are valid
   if (valid) {
     createItem(title, desc);
     addForm.reset();
@@ -88,6 +92,7 @@ function validateItemCreation() {
   }
 }
 
+// Builds the HTML element for a single item
 function createListItemElement(title, desc, isNew = false) {
   const listItem = document.createElement("article");
 
@@ -106,6 +111,7 @@ function createListItemElement(title, desc, isNew = false) {
     <p>${formattedDesc}</p>
   `;
 
+  // Remove button
   const removeButton = document.createElement("button");
   removeButton.classList.add("remove-btn");
   removeButton.setAttribute("aria-label", "Remover item");
@@ -117,20 +123,22 @@ function createListItemElement(title, desc, isNew = false) {
   span.setAttribute("aria-hidden", "true");
   removeButton.appendChild(span);
 
-  listItem.appendChild(itemContent);
-  listItem.appendChild(removeButton);
+  // Removes item from DOM and storage after animation
   removeButton.addEventListener("click", function () {
     listItem.classList.add("remove-animation");
     setTimeout(() => {
       itemBox.removeChild(listItem);
       saveList();
       updateEmptyListVisibility();
-    }, 400); // Match the duration of the animation
+    }, 400);
   });
 
+  listItem.appendChild(itemContent);
+  listItem.appendChild(removeButton);
   return listItem;
 }
 
+// Adds new item to DOM and saves it
 function createItem(title, desc) {
   const listItem = createListItemElement(title, desc, true); // Pass true for isNew
   itemBox.appendChild(listItem);
@@ -139,6 +147,7 @@ function createItem(title, desc) {
   updateEmptyListVisibility();
 }
 
+// Saves all items to sessionStorage
 function saveList() {
   const currentItems = [];
 
@@ -157,10 +166,11 @@ function saveList() {
   updateEmptyListVisibility();
 }
 
+// Loads previsously saved list from sessionStorage
 function loadList() {
   const savedItemsJSON = sessionStorage.getItem("myItemList");
 
-  itemBox.innerHTML = ""; // Clear existing items before loading
+  itemBox.innerHTML = ""; // Clear previous content
 
   if (savedItemsJSON) {
     const savedItems = JSON.parse(savedItemsJSON);
@@ -175,6 +185,7 @@ function loadList() {
   updateEmptyListVisibility();
 }
 
+// Shows or hides empty message based on list content
 function updateEmptyListVisibility() {
   if (itemBox.children.length > 0) {
     emptyList.classList.remove("show-flex");
@@ -187,7 +198,7 @@ function updateEmptyListVisibility() {
   }
 }
 
-// Main column "X" button
+// Deletes list and reloads page
 closeBtn.addEventListener("click", () => {
   if (listName) {
     sessionStorage.removeItem("listName");
@@ -195,7 +206,7 @@ closeBtn.addEventListener("click", () => {
   }
 });
 
-// “Add” button only opens modal when in small screen and there is listName
+// Opens modal only on small screens
 addBtn.addEventListener("click", () => {
   if (mediaQueryMax768.matches && listName) {
     openModal();
@@ -216,7 +227,7 @@ function closeModal() {
   addBtn.focus();
 }
 
-// Closes modal in various situations
+// Closes modal on various events
 closeModalBtn.addEventListener("click", closeModal);
 modalOverlay.addEventListener("click", closeModal);
 document.addEventListener("keydown", (event) => {
@@ -228,8 +239,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Adjusts button/column visibility according to media query,
-// but does NOT open the modal automatically.
+// Syncs layout and visibility based on screen size
 function handleMediaQueryChange(event) {
   if (!event.matches) {
     if (document.body.classList.contains("show-modal")) {
@@ -241,6 +251,7 @@ function handleMediaQueryChange(event) {
   checkSessionStorage();
 }
 
+// Redirects to index if session is invalid
 function checkSessionStorage() {
   if (!listName) {
     sessionStorage.clear();
@@ -255,14 +266,12 @@ function checkSessionStorage() {
   }
 }
 
-// Monitors viewport/zoom changes
+// Responsive listener
 mediaQueryMax768.addEventListener("change", handleMediaQueryChange);
-
-// Initial setup on page load
 handleMediaQueryChange(mediaQueryMax768);
 
+// Theme setup
 updateThemeColor();
-
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", updateThemeColor);
