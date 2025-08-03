@@ -1,93 +1,85 @@
 <!-- markdownlint-disable MD033 -->
 
-# 📋 Mini-App de Lista Dinâmica com Adição e Remoção
+# 📋 Mini App – Customizable To-Do List with Validation & Feedback
 
-🎯 Um app simples e direto para criar listas personalizadas com validação e interação visual.
+🎯 A lightweight, responsive app to create and manage personalized lists with client-side validation, interactive feedback, and visual accessibility in both light and dark themes.
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- Adicionar nome à lista
-- Exibir nome com botão de remoção
-- Remover itens individualmente
-- Validação de campos com mensagens visuais (erro, sucesso, atenção)
+- Add a custom name to your list (with validation)
+- Create, display, and remove individual items
+- Responsive modal interface on mobile devices
+- Visual alerts for success, warnings, and errors
+- Theme auto-adaptation based on OS preference (light/dark)
+- Accessible contrast ratio (>7) for better readability
 
 ## 📸 Screenshots
 
-### Interface inicial
+### 🌓 Theme auto-detection (Light & Dark)
+
+![Light Mode Interface](./assets/readme/homeInterface-light.png)
+![Dark Mode Interface](./assets/readme/homeInterface-dark.png)
+
+### 📱 Mobile Modal (small screens only)
 
 <p align="center">
-    <img src="./assets/readme/homeInterface.png" alt="Interface Inicial" width="400" />
+  <img src="./assets/readme/mobileModal-light.png" alt="Light Mobile Modal Interface" width="45%" />
+  <img src="./assets/readme/mobileModal-dark.png" alt="Dark Mobile Modal Interface" width="45%" />
 </p>
 
-### Alertas visuais
+### 🔷 Modal (large screens)
 
-- ✅ Sucesso (ao adicionar um nome válido)
+![Dark Large Modal Interface](./assets/readme/modalLarge.png)
 
-  <p align="center">
-    <img src="./assets/readme/successAlert.gif" alt="Alerta de Sucesso" width="400" />
-  </p>
-
-- ❌ Erro (ao tentar adicionar um campo vazio)
-
-  <p align="center">
-    <img src="./assets/readme/errorAlert.gif" alt="Alerta de Erro" width="400" />
-  </p>
-
-- ⚠️ Atenção (ao tentar adicionar um nome com menos de 3 caracteres)
-
-  <p align="center">
-    <img src="./assets/readme/warningAlert.gif" alt="Alerta de Atenção" width="400" />
-  </p>
-
-## 🧠 Tecnologias utilizadas
+## 🧠 Technologies
 
 - HTML5
-- CSS3
-- JavaScript (DOM Manipulation)
+- CSS3 (Responsive Design + Dark Mode)
+- JavaScript (DOM Manipulation + Session Storage)
 
-## 🔧 Como rodar localmente
+## 🚀 Live Demo
 
-1. Baixe ou clone este repositório:
+- [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-online-emerald?logo=github&logoColor=white)](https://mateusaraujos.github.io/mini-app-lista/)
+- [![Vercel Deploy](https://img.shields.io/badge/Vercel-online-emerald?logo=vercel&logoColor=white)](https://mini-app-lista.vercel.app)
+
+## 💻 How to Run Locally
+
+1. Clone this repository:
 
    ```sh
    git clone https://github.com/mateusaraujos/mini-app-lista
    ```
 
-2. Acesse a pasta do projeto:
+2. Navigate into the project directory:
 
    ```sh
    cd mini-app-lista
    ```
 
-3. Abra o arquivo `index.html` no navegador.
+3. Open the `index.html` file in your browser.
 
-## 🚀 Deploy
-
-🔗 Acesse o projeto online:
-
-- [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-online-emerald?logo=github&logoColor=white)](https://mateusaraujos.github.io/mini-app-lista/)
-- [![Deploy com Vercel](https://img.shields.io/badge/Vercel-online-emerald?logo=vercel&logoColor=white)](https://mini-app-lista.vercel.app)
-
-## 📁 Estrutura de pastas
+## 📁 Project Structure
 
 ```sh
 mini-app-lista/
 ├── index.html
 ├── style.css
 ├── script.js
-├── assets/
-│   └── readme/
-│       ├── homeInterface.png
-│       ├── successAlert.gif
-│       ├── errorAlert.gif
-│       └── warningAlert.gif
-└── pages/
-    ├── list.html
-    ├── list.css
-    └── list.js
+├── pages/
+│   ├── list.html
+│   ├── list.css
+│   └── list.js
+└── assets/
+    └── readme/
+        ├── homeInterface-light.png
+        ├── homeInterface-dark.png
+        ├── mobileModal.png
+        ├── successAlert.gif
+        ├── errorAlert.gif
+        └── warningAlert.gif
 ```
 
-## 👤 Feito por
+## 👤 Developed by
 
 - [![GitHub](https://img.shields.io/badge/GitHub%20-%20mateusaraujos-white?logo=github&logoColor=white)](https://github.com/mateusaraujos)
 - [![LinkedIn](https://img.shields.io/badge/LinkedIn%20-%20Mateus%20Araújo-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mateusaraujos/)
