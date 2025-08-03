@@ -73,10 +73,9 @@ mini-app-lista/
     └── readme/
         ├── homeInterface-light.png
         ├── homeInterface-dark.png
-        ├── mobileModal.png
-        ├── successAlert.gif
-        ├── errorAlert.gif
-        └── warningAlert.gif
+        ├── mobileModal-light.png
+        ├── mobileModal-dark.png
+        └── modalLarge.png
 ```
 
 ## 👤 Developed by
